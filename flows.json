@@ -1,0 +1,5147 @@
+[
+    {
+        "id": "a8155172fceaa888",
+        "type": "tab",
+        "label": "POC",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3657ba5f94aa31e1",
+        "type": "tab",
+        "label": "Test",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "18eeef1213ab0970",
+        "type": "tab",
+        "label": "Method 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9d5e8229012b9c73",
+        "type": "tab",
+        "label": "Method 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "da53a1c7cff4af8c",
+        "type": "tab",
+        "label": "Sample DGR",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fca45c0d043a12a2",
+        "type": "tab",
+        "label": "postman",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7283d7a585b3b2fb",
+        "type": "tab",
+        "label": "graph",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "430bd2ba824cc59c",
+        "type": "tab",
+        "label": "bearer access",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Grafana on NR",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "18b91be20995c6da",
+        "type": "tab",
+        "label": "hysolwin",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fd7753ff7b352a7c",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "79ee2dfb383828d4",
+        "type": "tab",
+        "label": "Specific yield",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dfde0eb8a7e7e4cf",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cb44cd6126e01eab",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3e5ec3ac526813c8",
+        "type": "influxdb",
+        "hostname": "192.168.42.86",
+        "port": "8086",
+        "protocol": "http",
+        "database": "iSolar",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "20d35b4d3a41c3ed",
+        "type": "file in",
+        "z": "a8155172fceaa888",
+        "name": "",
+        "filename": "/home/iplon/Desktop/poornima/generationreport.jpg",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 970,
+        "y": 180,
+        "wires": [
+            [
+                "f4c634e457adfd9b"
+            ]
+        ]
+    },
+    {
+        "id": "62faa9410fbef54f",
+        "type": "file",
+        "z": "a8155172fceaa888",
+        "name": "",
+        "filename": "/home/iplon/Desktop/poornima/pdf1.pdf",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 960,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "25cd73bae9a5e5be",
+        "type": "pdfmake",
+        "z": "a8155172fceaa888",
+        "name": "",
+        "outputType": "Buffer",
+        "inputProperty": "payload",
+        "options": "{}",
+        "outputProperty": "payload",
+        "x": 700,
+        "y": 540,
+        "wires": [
+            [
+                "62faa9410fbef54f"
+            ]
+        ]
+    },
+    {
+        "id": "ea8faa1d5bd45f5f",
+        "type": "inject",
+        "z": "a8155172fceaa888",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "timestamp",
+        "payloadType": "str",
+        "x": 100,
+        "y": 200,
+        "wires": [
+            [
+                "4170bfac944bc5aa"
+            ]
+        ]
+    },
+    {
+        "id": "4170bfac944bc5aa",
+        "type": "puppeteer-browser-launch",
+        "z": "a8155172fceaa888",
+        "timeout": "60000",
+        "slowMo": 0,
+        "headless": true,
+        "debugport": 0,
+        "devtools": true,
+        "name": "",
+        "x": 200,
+        "y": 60,
+        "wires": [
+            [
+                "1f2440ca402bfffa"
+            ]
+        ]
+    },
+    {
+        "id": "49134b3a3d943efe",
+        "type": "jimp-image",
+        "z": "a8155172fceaa888",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "/home/iplon/Desktop/poornima/generationreport.jpg",
+        "parameter1Type": "str",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 670,
+        "y": 180,
+        "wires": [
+            [
+                "20d35b4d3a41c3ed"
+            ]
+        ]
+    },
+    {
+        "id": "1f2440ca402bfffa",
+        "type": "puppeteer-page-goto",
+        "z": "a8155172fceaa888",
+        "name": "Generation report",
+        "url": "https://my.iteccrm.com/stream/",
+        "urltype": "str",
+        "waitUntil": "networkidle0",
+        "x": 390,
+        "y": 60,
+        "wires": [
+            [
+                "4995c4321714c7f0"
+            ]
+        ]
+    },
+    {
+        "id": "9fea8f7354213429",
+        "type": "jimp-image",
+        "z": "a8155172fceaa888",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "/home/iplon/Desktop/poornima/reports.jpg",
+        "parameter1Type": "str",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 690,
+        "y": 280,
+        "wires": [
+            [
+                "c7e29dc6e8b1c04f"
+            ]
+        ]
+    },
+    {
+        "id": "1ccd68a1ed6a6c59",
+        "type": "puppeteer-page-goto",
+        "z": "a8155172fceaa888",
+        "name": "reports",
+        "url": "https://snapshots.raintank.io/dashboard/snapshot/J890G8iVTCLOKs6lAnBVR5U4bH60GJ0P",
+        "urltype": "str",
+        "waitUntil": "networkidle0",
+        "x": 340,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c7e29dc6e8b1c04f",
+        "type": "file in",
+        "z": "a8155172fceaa888",
+        "name": "",
+        "filename": "/home/iplon/Desktop/poornima/reports.jpg",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 860,
+        "y": 260,
+        "wires": [
+            [
+                "bfae680447b91ccc"
+            ]
+        ]
+    },
+    {
+        "id": "28364e4bc6caf3a7",
+        "type": "puppeteer-browser-launch",
+        "z": "a8155172fceaa888",
+        "timeout": "60000",
+        "slowMo": 0,
+        "headless": true,
+        "debugport": 0,
+        "devtools": true,
+        "name": "",
+        "x": 180,
+        "y": 260,
+        "wires": [
+            [
+                "1ccd68a1ed6a6c59"
+            ]
+        ]
+    },
+    {
+        "id": "ca6f33ac30295919",
+        "type": "template",
+        "z": "a8155172fceaa888",
+        "name": "Wattnexx",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"pageSize\": \"A4\",\n    \"pageOrientation\": \"portrait\",\n    \"pageMargins\": [\n        40,\n        60,\n        40,\n        60\n    ],\n    \"info\": {\n        \"title\": \"Wattnexx reports\",\n        \"author\": \"Poornima & Sujiritha\",\n        \"subject\": \"Monthly\",\n        \"keywords\": \"Micro Grid\"\n    },\n    \"title\":{\n        \"h1\":\"Hysolwin inverter reports\",\n        \"text-align\": \"center\",\n        \"fontWeight\": \"bold\"\n    },\n    \"content\": [\n        {\n            \"title\":\"Wattnexx reports\",\n            \"style\": \"bold\",\n            \"alignment\": \"center\"\n        },\n        \"\\n\",\n        \"\\n\",\n        \"1.Aim : \",\n        \"\\n\",\n        \"This report contains the details of Weekly,monthly and yearly reports for your reference.\",\n        \"\\n\",\n        \"2. Generation reports :\",\n        \"\\n\",\n        \"This screen shows the generation devices like inverter. Here we get last Month generation data. Also, that screen data directly export to csv format.\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.generation}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        },\n        \"\\n\",\n        \"3.Reports :\",\n        \"This shows monthly & yearly data\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.reports}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        }\n    ]\n}",
+        "output": "json",
+        "x": 540,
+        "y": 520,
+        "wires": [
+            [
+                "25cd73bae9a5e5be"
+            ]
+        ]
+    },
+    {
+        "id": "f4c634e457adfd9b",
+        "type": "base64",
+        "z": "a8155172fceaa888",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 1240,
+        "y": 180,
+        "wires": [
+            [
+                "08771731dac1d129"
+            ]
+        ]
+    },
+    {
+        "id": "bfae680447b91ccc",
+        "type": "base64",
+        "z": "a8155172fceaa888",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 1240,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "72535c4fc8c52572",
+        "type": "change",
+        "z": "a8155172fceaa888",
+        "name": "reports",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "reports",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 560,
+        "wires": [
+            [
+                "3f4271d49fe6fa29"
+            ]
+        ]
+    },
+    {
+        "id": "69c6c5305a527dbc",
+        "type": "change",
+        "z": "a8155172fceaa888",
+        "name": "generation",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "generation",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 460,
+        "wires": [
+            [
+                "3f4271d49fe6fa29"
+            ]
+        ]
+    },
+    {
+        "id": "3f4271d49fe6fa29",
+        "type": "function",
+        "z": "a8155172fceaa888",
+        "name": "combine",
+        "func": "context.data = context.data || {};\nswitch(msg.topic){\n    case \"generation\":\n        context.data.generation = msg.payload;\n        msg = null;\n        break;\n    case \"reports\":\n        context.data.reports = msg.payload;\n        msg = null;\n        break;\n}\nif(context.data.generation != null && context.data.reports != null){\n    var data_combine = {\n        \"generation\": context.data.generation,\n        \"reports\": context.data.reports\n       \n    }\n    context.data = null\n    return {payload: data_combine};\n}  ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 520,
+        "wires": [
+            [
+                "ca6f33ac30295919"
+            ]
+        ]
+    },
+    {
+        "id": "08771731dac1d129",
+        "type": "debug",
+        "z": "a8155172fceaa888",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "a3d7509f9262f088",
+        "type": "change",
+        "z": "a8155172fceaa888",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4995c4321714c7f0",
+        "type": "puppeteer-page-screenshot",
+        "z": "a8155172fceaa888",
+        "name": "",
+        "fullpage": true,
+        "x": 490,
+        "y": 160,
+        "wires": [
+            [
+                "49134b3a3d943efe"
+            ]
+        ]
+    },
+    {
+        "id": "42b7f97e60f87edf",
+        "type": "file in",
+        "z": "3657ba5f94aa31e1",
+        "name": "input",
+        "filename": "/home/iplon/Desktop/poornima/generationreport.jpg",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 770,
+        "y": 100,
+        "wires": [
+            [
+                "507f8839ceab2439"
+            ]
+        ]
+    },
+    {
+        "id": "dfc4af3d40afd849",
+        "type": "inject",
+        "z": "3657ba5f94aa31e1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "timestamp",
+        "payloadType": "str",
+        "x": 100,
+        "y": 240,
+        "wires": [
+            [
+                "87654fc1ee7b97de",
+                "03d0742860214500",
+                "1ca9d63061d6db3d",
+                "6ff85a1d392c8dca"
+            ]
+        ]
+    },
+    {
+        "id": "36e2047b9e148182",
+        "type": "puppeteer-page-screenshot",
+        "z": "3657ba5f94aa31e1",
+        "name": "",
+        "fullpage": true,
+        "x": 510,
+        "y": 100,
+        "wires": [
+            [
+                "de3ccbcd322d8175"
+            ]
+        ]
+    },
+    {
+        "id": "1ca9d63061d6db3d",
+        "type": "puppeteer-browser-launch",
+        "z": "3657ba5f94aa31e1",
+        "timeout": "60000",
+        "slowMo": 0,
+        "headless": true,
+        "debugport": 0,
+        "devtools": true,
+        "name": "",
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "8309406eb3fd3049"
+            ]
+        ]
+    },
+    {
+        "id": "8309406eb3fd3049",
+        "type": "puppeteer-page-goto",
+        "z": "3657ba5f94aa31e1",
+        "name": "Generation report",
+        "url": "https://snapshots.raintank.io/dashboard/snapshot/F27nVD0170fzqtiLkpjc37pOcnyeyuPT",
+        "urltype": "str",
+        "waitUntil": "networkidle0",
+        "x": 330,
+        "y": 100,
+        "wires": [
+            [
+                "36e2047b9e148182"
+            ]
+        ]
+    },
+    {
+        "id": "aca5a18f0ca560af",
+        "type": "puppeteer-page-screenshot",
+        "z": "3657ba5f94aa31e1",
+        "name": "",
+        "fullpage": true,
+        "x": 450,
+        "y": 180,
+        "wires": [
+            [
+                "d22eaa6ec579212b"
+            ]
+        ]
+    },
+    {
+        "id": "d22eaa6ec579212b",
+        "type": "jimp-image",
+        "z": "3657ba5f94aa31e1",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "/home/iplon/Desktop/poornima/reports.jpg",
+        "parameter1Type": "str",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 590,
+        "y": 180,
+        "wires": [
+            [
+                "ceb485c54ab45c7e"
+            ]
+        ]
+    },
+    {
+        "id": "d810b50992fdeef6",
+        "type": "puppeteer-page-goto",
+        "z": "3657ba5f94aa31e1",
+        "name": "reports",
+        "url": "https://snapshots.raintank.io/dashboard/snapshot/J890G8iVTCLOKs6lAnBVR5U4bH60GJ0P",
+        "urltype": "str",
+        "waitUntil": "networkidle0",
+        "x": 300,
+        "y": 180,
+        "wires": [
+            [
+                "aca5a18f0ca560af"
+            ]
+        ]
+    },
+    {
+        "id": "ceb485c54ab45c7e",
+        "type": "file in",
+        "z": "3657ba5f94aa31e1",
+        "name": "input",
+        "filename": "/home/iplon/Desktop/poornima/reports.jpg",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 710,
+        "y": 180,
+        "wires": [
+            [
+                "6294e5f6a2433c5e"
+            ]
+        ]
+    },
+    {
+        "id": "03d0742860214500",
+        "type": "puppeteer-browser-launch",
+        "z": "3657ba5f94aa31e1",
+        "timeout": "60000",
+        "slowMo": 0,
+        "headless": true,
+        "debugport": 0,
+        "devtools": true,
+        "name": "",
+        "x": 160,
+        "y": 180,
+        "wires": [
+            [
+                "d810b50992fdeef6"
+            ]
+        ]
+    },
+    {
+        "id": "507f8839ceab2439",
+        "type": "base64",
+        "z": "3657ba5f94aa31e1",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 900,
+        "y": 100,
+        "wires": [
+            [
+                "1d1f5161b3c6fcf9"
+            ]
+        ]
+    },
+    {
+        "id": "6294e5f6a2433c5e",
+        "type": "base64",
+        "z": "3657ba5f94aa31e1",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 840,
+        "y": 180,
+        "wires": [
+            [
+                "35da131dae843dee"
+            ]
+        ]
+    },
+    {
+        "id": "224b025d471aea05",
+        "type": "file in",
+        "z": "3657ba5f94aa31e1",
+        "name": "input",
+        "filename": "/home/iplon/Desktop/poornima/string.jpg",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 730,
+        "y": 300,
+        "wires": [
+            [
+                "39a80da8a5455cbc"
+            ]
+        ]
+    },
+    {
+        "id": "4d366e5dc149206f",
+        "type": "puppeteer-page-screenshot",
+        "z": "3657ba5f94aa31e1",
+        "name": "",
+        "fullpage": true,
+        "x": 450,
+        "y": 300,
+        "wires": [
+            [
+                "a1c8ec2eb93c948b"
+            ]
+        ]
+    },
+    {
+        "id": "87654fc1ee7b97de",
+        "type": "puppeteer-browser-launch",
+        "z": "3657ba5f94aa31e1",
+        "timeout": "60000",
+        "slowMo": 0,
+        "headless": true,
+        "debugport": 0,
+        "devtools": true,
+        "name": "",
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "ab1c755682db765d"
+            ]
+        ]
+    },
+    {
+        "id": "a1c8ec2eb93c948b",
+        "type": "jimp-image",
+        "z": "3657ba5f94aa31e1",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "/home/iplon/Desktop/poornima/string.jpg",
+        "parameter1Type": "str",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 610,
+        "y": 300,
+        "wires": [
+            [
+                "224b025d471aea05"
+            ]
+        ]
+    },
+    {
+        "id": "ab1c755682db765d",
+        "type": "puppeteer-page-goto",
+        "z": "3657ba5f94aa31e1",
+        "name": "stringinv",
+        "url": "https://snapshots.raintank.io/dashboard/snapshot/jc3jIDsQOTu6FwdITIaD5JQotcV7rS13",
+        "urltype": "str",
+        "waitUntil": "networkidle0",
+        "x": 300,
+        "y": 300,
+        "wires": [
+            [
+                "4d366e5dc149206f"
+            ]
+        ]
+    },
+    {
+        "id": "54b5e0c62c061842",
+        "type": "puppeteer-page-screenshot",
+        "z": "3657ba5f94aa31e1",
+        "name": "",
+        "fullpage": true,
+        "x": 470,
+        "y": 400,
+        "wires": [
+            [
+                "e6c60944c8cab07f"
+            ]
+        ]
+    },
+    {
+        "id": "e6c60944c8cab07f",
+        "type": "jimp-image",
+        "z": "3657ba5f94aa31e1",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "/home/iplon/Desktop/poornima/energy.jpg",
+        "parameter1Type": "str",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 610,
+        "y": 400,
+        "wires": [
+            [
+                "3a67c98f920ec695"
+            ]
+        ]
+    },
+    {
+        "id": "249f87a8cb31bf02",
+        "type": "puppeteer-page-goto",
+        "z": "3657ba5f94aa31e1",
+        "name": "energy",
+        "url": "https://snapshots.raintank.io/dashboard/snapshot/wk9qaDqCny7oMIwxAchoKcNirT7bmQDu?orgId=2&refresh=5m",
+        "urltype": "str",
+        "waitUntil": "networkidle0",
+        "x": 310,
+        "y": 400,
+        "wires": [
+            [
+                "54b5e0c62c061842"
+            ]
+        ]
+    },
+    {
+        "id": "3a67c98f920ec695",
+        "type": "file in",
+        "z": "3657ba5f94aa31e1",
+        "name": "input",
+        "filename": "/home/iplon/Desktop/poornima/energy.jpg",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 730,
+        "y": 400,
+        "wires": [
+            [
+                "548d5c314ef462ad"
+            ]
+        ]
+    },
+    {
+        "id": "6ff85a1d392c8dca",
+        "type": "puppeteer-browser-launch",
+        "z": "3657ba5f94aa31e1",
+        "timeout": "60000",
+        "slowMo": 0,
+        "headless": true,
+        "debugport": 0,
+        "devtools": true,
+        "name": "",
+        "x": 160,
+        "y": 400,
+        "wires": [
+            [
+                "249f87a8cb31bf02"
+            ]
+        ]
+    },
+    {
+        "id": "39a80da8a5455cbc",
+        "type": "base64",
+        "z": "3657ba5f94aa31e1",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 860,
+        "y": 300,
+        "wires": [
+            [
+                "be2ee9065e76083e"
+            ]
+        ]
+    },
+    {
+        "id": "548d5c314ef462ad",
+        "type": "base64",
+        "z": "3657ba5f94aa31e1",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 880,
+        "y": 400,
+        "wires": [
+            [
+                "8cfbed14caa02d16"
+            ]
+        ]
+    },
+    {
+        "id": "b84d3f1873f02961",
+        "type": "file",
+        "z": "3657ba5f94aa31e1",
+        "name": "output in PDF",
+        "filename": "/home/iplon/Desktop/poornima/wattnexx.pdf",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 840,
+        "y": 620,
+        "wires": [
+            [
+                "0c7868367bbf8bcb"
+            ]
+        ]
+    },
+    {
+        "id": "0c3d37f22ff91b02",
+        "type": "template",
+        "z": "3657ba5f94aa31e1",
+        "name": "Wattnexx",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"pageSize\": \"A4\",\n    \"pageOrientation\": \"portrait\",\n    \"pageMargins\": [\n        40,\n        60,\n        40,\n        60\n    ],\n    \"info\": {\n        \"title\": \"Wattnexx reports\",\n        \"author\": \"Poornima & Sujiritha\",\n        \"subject\": \"Monthly\",\n        \"keywords\": \"Micro Grid\"\n    },\n    \"content\": [\n        \"Wattnexx reports\",\n        \"\\n\",\n        \"1.Aim : \",\n        \"\\n\",\n        \"This report contains the details of Weekly,monthly and yearly reports for your reference.\",\n        \"\\n\",\n        \"2. Generation reports :\",\n        \"\\n\",\n        \"This screen shows the generation devices like inverter. Here we get last Month generation data. Also, that screen data directly export to csv format.\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.generation}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        },\n        \"\\n\",\n        \"\\n\",\n        \"3.Reports :\",\n        \"This screen shows monthly & yearly data\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.reports}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        },\n        \"\\n\",\n        \"\\n\",\n        \"\\n\",\n        \"4.INV String details :\",\n        \"This screen shows inverter wise string data of the plant\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.stringinv}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        },\n        \"\\n\",\n        \"5.Plant energy flow :\",\n        \"This screen shows active power,generation & frequency of all inverters data of the plant\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.energy}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        }\n    ]\n}",
+        "output": "json",
+        "x": 520,
+        "y": 620,
+        "wires": [
+            [
+                "17c63f7ebc12833e"
+            ]
+        ]
+    },
+    {
+        "id": "35da131dae843dee",
+        "type": "change",
+        "z": "3657ba5f94aa31e1",
+        "name": "reports",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "reports",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 200,
+        "y": 600,
+        "wires": [
+            [
+                "0d8ce51155405fc9"
+            ]
+        ]
+    },
+    {
+        "id": "1d1f5161b3c6fcf9",
+        "type": "change",
+        "z": "3657ba5f94aa31e1",
+        "name": "generation",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "generation",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 210,
+        "y": 520,
+        "wires": [
+            [
+                "0d8ce51155405fc9"
+            ]
+        ]
+    },
+    {
+        "id": "0c7868367bbf8bcb",
+        "type": "debug",
+        "z": "3657ba5f94aa31e1",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "be2ee9065e76083e",
+        "type": "change",
+        "z": "3657ba5f94aa31e1",
+        "name": "stringinv",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "stringinv",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 200,
+        "y": 680,
+        "wires": [
+            [
+                "0d8ce51155405fc9"
+            ]
+        ]
+    },
+    {
+        "id": "0d8ce51155405fc9",
+        "type": "function",
+        "z": "3657ba5f94aa31e1",
+        "name": "combine",
+        "func": "context.data = context.data || {};\nswitch(msg.topic){\n    case \"generation\":\n        context.data.generation = msg.payload;\n        msg = null;\n        break;\n    case \"reports\":\n        context.data.reports = msg.payload;\n        msg = null;\n        break;\n    case \"stringinv\":\n        context.data.stringinv = msg.payload;\n        msg = null;\n        break;\n    case \"energy\":\n        context.data.energy = msg.payload;\n        msg = null;\n        break;\n}\nif (context.data.generation != null && context.data.reports != null && context.data.stringinv != null && context.data.energy != null){\n    var data_combine = {\n        \"generation\": context.data.generation,\n        \"reports\": context.data.reports,\n        \"stringinv\": context.data.stringinv,\n        \"energy\": context.data.energy\n       \n    }\n    context.data = null\n    return {payload: data_combine};\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 620,
+        "wires": [
+            [
+                "0c3d37f22ff91b02"
+            ]
+        ]
+    },
+    {
+        "id": "17c63f7ebc12833e",
+        "type": "pdfmake",
+        "z": "3657ba5f94aa31e1",
+        "name": "",
+        "outputType": "Buffer",
+        "inputProperty": "payload",
+        "options": "{}",
+        "outputProperty": "payload",
+        "x": 680,
+        "y": 620,
+        "wires": [
+            [
+                "b84d3f1873f02961"
+            ]
+        ]
+    },
+    {
+        "id": "8cfbed14caa02d16",
+        "type": "change",
+        "z": "3657ba5f94aa31e1",
+        "name": "energy",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "energy",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 190,
+        "y": 760,
+        "wires": [
+            [
+                "0d8ce51155405fc9"
+            ]
+        ]
+    },
+    {
+        "id": "de3ccbcd322d8175",
+        "type": "jimp-image",
+        "z": "3657ba5f94aa31e1",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "/home/iplon/Desktop/poornima/generationreport.jpg",
+        "parameter1Type": "str",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 650,
+        "y": 100,
+        "wires": [
+            [
+                "42b7f97e60f87edf"
+            ]
+        ]
+    },
+    {
+        "id": "9dbdb83c6aa5ba3e",
+        "type": "inject",
+        "z": "18eeef1213ab0970",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 320,
+        "wires": [
+            [
+                "cbea027f1a0d6dc9"
+            ]
+        ]
+    },
+    {
+        "id": "9776064e02f810a5",
+        "type": "puppeteer-page-screenshot",
+        "z": "18eeef1213ab0970",
+        "name": "",
+        "fullpage": true,
+        "x": 650,
+        "y": 320,
+        "wires": [
+            [
+                "7941ba58663f836c"
+            ]
+        ]
+    },
+    {
+        "id": "cbea027f1a0d6dc9",
+        "type": "puppeteer-browser-launch",
+        "z": "18eeef1213ab0970",
+        "timeout": "60000",
+        "slowMo": 0,
+        "headless": true,
+        "debugport": 0,
+        "devtools": true,
+        "name": "",
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "3a0d814239f7c047"
+            ]
+        ]
+    },
+    {
+        "id": "7941ba58663f836c",
+        "type": "jimp-image",
+        "z": "18eeef1213ab0970",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "/home/iplon/Desktop/poornima/report.jpg",
+        "parameter1Type": "str",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 810,
+        "y": 320,
+        "wires": [
+            [
+                "880a0132d3ef3546"
+            ]
+        ]
+    },
+    {
+        "id": "880a0132d3ef3546",
+        "type": "image viewer",
+        "z": "18eeef1213ab0970",
+        "name": "",
+        "width": 160,
+        "data": "payload",
+        "dataType": "msg",
+        "active": true,
+        "x": 1010,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3a0d814239f7c047",
+        "type": "puppeteer-page-goto",
+        "z": "18eeef1213ab0970",
+        "name": "ws",
+        "url": "https://snapshots.raintank.io/dashboard/snapshot/cLPxo0guIuL0vjGxqm19j3sGPB5g2F40",
+        "urltype": "str",
+        "waitUntil": "networkidle0",
+        "x": 490,
+        "y": 320,
+        "wires": [
+            [
+                "9776064e02f810a5"
+            ]
+        ]
+    },
+    {
+        "id": "eed91e5a229dfecf",
+        "type": "http in",
+        "z": "9d5e8229012b9c73",
+        "name": "i/p",
+        "url": "/report",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "b93c83d2bd57cb64"
+            ]
+        ]
+    },
+    {
+        "id": "b93c83d2bd57cb64",
+        "type": "screenshot",
+        "z": "9d5e8229012b9c73",
+        "name": "",
+        "url": "https://www.youtube.com/watch?v=vdxagU60zwQ",
+        "path": "",
+        "x": 400,
+        "y": 220,
+        "wires": [
+            [
+                "274145ec56c4fc37"
+            ]
+        ]
+    },
+    {
+        "id": "274145ec56c4fc37",
+        "type": "template",
+        "z": "9d5e8229012b9c73",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n    <body>\n        <img src=\"data:image/png;base64,{{payload}}\">\n    </body>\n</html>",
+        "output": "str",
+        "x": 520,
+        "y": 280,
+        "wires": [
+            [
+                "aa0ce7c8f41433ad"
+            ]
+        ]
+    },
+    {
+        "id": "aa0ce7c8f41433ad",
+        "type": "http response",
+        "z": "9d5e8229012b9c73",
+        "name": "o/p",
+        "statusCode": "",
+        "headers": {},
+        "x": 620,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "c4eb9aea73b94c80",
+        "type": "debug",
+        "z": "da53a1c7cff4af8c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9e62cbb6241dfca2",
+        "type": "exec",
+        "z": "da53a1c7cff4af8c",
+        "command": "python3 DayValueinani1.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 880,
+        "y": 200,
+        "wires": [
+            [
+                "c4eb9aea73b94c80"
+            ],
+            [
+                "80c7ddf737641acf"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f6c01b109762e663",
+        "type": "inject",
+        "z": "da53a1c7cff4af8c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "46e65db940616426",
+        "type": "file",
+        "z": "da53a1c7cff4af8c",
+        "name": "",
+        "filename": "DayValueinani1.py",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 640,
+        "y": 200,
+        "wires": [
+            [
+                "9e62cbb6241dfca2"
+            ]
+        ]
+    },
+    {
+        "id": "54fc5f350a88ac26",
+        "type": "template",
+        "z": "da53a1c7cff4af8c",
+        "name": "DayValueinani1",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "python",
+        "syntax": "mustache",
+        "template": "import time\nimport datetime\nimport pandas as pd \nimport pytz\nimport calendar\nfrom influxdb import InfluxDBClient\nfrom datetime import date\n\ntoday = date.today()\np = (str(today))\nx = p.split('-')\nuniqueday = int(x[2])\nuniquemonth = int(x[1])\nuniqueyear = int(x[0])\nts = datetime.datetime(uniqueyear,uniquemonth,uniqueday, 00, 00,00).timestamp()\nc = int(ts)\nFrom = (c-19800)\nTo = calendar.timegm(time.gmtime())\n\nclient = InfluxDBClient(host = \"localhost\", port = \"8086\",username='admin', password='admin', database= 'datalake')\n\ndevice = ['EM01','INV01','INV02','INV03','INV04','INV05','INV06']\n\ndef sending(df):\n    #print('a')\n    #print(df)\n    Year = int(df['Year'])\n    Month = int(df['Month'])\n    Day = int(df['Day'])\n    Device = str(df['Device'])\n    EAE_DAY = float(df['EAE_DAY'])\n    print(EAE_DAY)\n    x = Device.split(' ')\n    y = x[4]\n    z = y.split('\\n')\n    Dev = z[0]\n    ts = datetime.datetime(Year,Month,Day, 00, 00,00).timestamp()\n    #ts = (calendar.timegm(Date_IST.timetuple()))\n    ns = int(ts)\n    string = str(ns) + \"000000000\"\n    liveepoch = int(string)\n\n    from influxdb import InfluxDBClient\n    client = InfluxDBClient('localhost', 8086)\n    dbs = client.get_list_database()\n    if 'warehousr' not in dbs:\n        client.create_database('warehousr')\n    client = InfluxDBClient('localhost', 8086, 'admin', 'admin', 'warehousr')\n    #print(v)\n    #json_payload = []\n\n    data = [\n        {\n        \"measurement\":\"Day\",\n        \"tags\": {\n            \"d\" : Dev,\n            \"p\" : \"sualpha_inani_1_2MW\"\n                },\n        \"time\" : liveepoch,\n        \"fields\": {\n            \"EAE_DAY\" : EAE_DAY\n            #\"Device\": Dev\n            }\n        }\n    ]\n    print(data)\n    #json_payload.append(data)\n    #print(client.write_points(data))\n    client.write_points(data)\n\nfor i in range(len(device)):\n    result1 = client.query('select last(\"value\") from v where bd= \\'inani1_1.2MW\\' AND d = \\''+device[i]+'\\' AND f= \\'EAE_DAY\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms  group by time(1d,-330m), \"bd\",\"d\" fill(null)')\n    #print(result1)\n    points_day = list(result1.get_points(measurement='v', tags={'bd':'inani1_1.2MW','d': device[i]}))\n    df = pd.DataFrame(points_day)\n    if len(df) != 0:\n        df[\"Date_IST\"] = pd.to_datetime(df[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\n        df.Date_IST = pd.to_datetime(df.Date_IST)\n        #df[\"Date_IST\"] = df[\"Date_IST\"].to_pydatetime()\n        df['day'] = pd.to_datetime(df['Date_IST']).dt.day\n        df['month'] = pd.to_datetime(df['Date_IST']).dt.month\n        df['year'] = pd.to_datetime(df['Date_IST']).dt.year\n        df = df.dropna() \n    \n        Month = df['month'].tolist()\n        Year = df['year'].tolist()\n        Day =  df['day'].tolist()\n        EAE_DAY =  df['last'].tolist()\n        Date_IST =  df['Date_IST'].tolist()\n    \n        df = pd.DataFrame(\n        {'Month': Month,\n        'Year': Year,\n        'Day': Day,\n        'EAE_DAY': EAE_DAY,\n        'Date_IST': Date_IST,\n        'Device':  device[i]})\n        #print(df)\n        sending(df)",
+        "output": "str",
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "46e65db940616426"
+            ]
+        ]
+    },
+    {
+        "id": "80c7ddf737641acf",
+        "type": "debug",
+        "z": "da53a1c7cff4af8c",
+        "name": "error",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "c7ee5df2b0a99d00",
+        "type": "exec",
+        "z": "da53a1c7cff4af8c",
+        "command": "python3 DayValueinani2.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 880,
+        "y": 260,
+        "wires": [
+            [
+                "c4eb9aea73b94c80"
+            ],
+            [
+                "80c7ddf737641acf"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4b3e44a17c681ee3",
+        "type": "file",
+        "z": "da53a1c7cff4af8c",
+        "name": "",
+        "filename": "DayValueinani2.py",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 610,
+        "y": 260,
+        "wires": [
+            [
+                "c7ee5df2b0a99d00"
+            ]
+        ]
+    },
+    {
+        "id": "834c8633cd271360",
+        "type": "template",
+        "z": "da53a1c7cff4af8c",
+        "name": "DayValueinani2",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "python",
+        "syntax": "mustache",
+        "template": "import time\nimport datetime\nimport pandas as pd \nimport pytz\nimport calendar\nfrom influxdb import InfluxDBClient\nfrom datetime import date\n\ntoday = date.today()\np = (str(today))\nx = p.split('-')\nuniqueday = int(x[2])\nuniquemonth = int(x[1])\nuniqueyear = int(x[0])\nts = datetime.datetime(uniqueyear,uniquemonth,uniqueday, 00, 00,00).timestamp()\nc = int(ts)\nFrom = (c-19800)\nTo = calendar.timegm(time.gmtime())\n\nclient = InfluxDBClient(host = \"localhost\", port = \"8086\",username='admin', password='admin', database= 'datalake')\n\ndevice = ['EM02','INV07','INV08','INV09','INV10','INV11','INV12']\n\ndef sending(df):\n    #print('a')\n    #print(df)\n    Year = int(df['Year'])\n    Month = int(df['Month'])\n    Day = int(df['Day'])\n    Device = str(df['Device'])\n    EAE_DAY = float(df['EAE_DAY'])\n    print(EAE_DAY)\n    x = Device.split(' ')\n    y = x[4]\n    z = y.split('\\n')\n    Dev = z[0]\n    ts = datetime.datetime(Year,Month,Day, 00, 00,00).timestamp()\n    #ts = (calendar.timegm(Date_IST.timetuple()))\n    ns = int(ts)\n    string = str(ns) + \"000000000\"\n    liveepoch = int(string)\n\n    from influxdb import InfluxDBClient\n    client = InfluxDBClient('localhost', 8086)\n    dbs = client.get_list_database()\n    if 'warehousr' not in dbs:\n        client.create_database('warehousr')\n    client = InfluxDBClient('localhost', 8086, 'admin', 'admin', 'warehousr')\n    #print(v)\n    #json_payload = []\n\n    data = [\n        {\n        \"measurement\":\"Day\",\n        \"tags\": {\n            \"d\" : Dev,\n            \"p\" : \"sualpha_inani_1_2MW\"\n                },\n        \"time\" : liveepoch,\n        \"fields\": {\n            \"EAE_DAY\" : EAE_DAY\n            #\"Device\": Dev\n            }\n        }\n    ]\n    print(data)\n    #json_payload.append(data)\n    #print(client.write_points(data))\n    client.write_points(data)\n\nfor i in range(len(device)):\n    result1 = client.query('select last(\"value\") from v where bd= \\'inani2_1.2MW\\' AND d = \\''+device[i]+'\\' AND f= \\'EAE_DAY\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms  group by time(1d,-330m), \"bd\",\"d\" fill(null)')\n    #print(result1)\n    points_day = list(result1.get_points(measurement='v', tags={'bd':'inani2_1.2MW','d': device[i]}))\n    df = pd.DataFrame(points_day)\n    if len(df) != 0:\n        df[\"Date_IST\"] = pd.to_datetime(df[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\n        df.Date_IST = pd.to_datetime(df.Date_IST)\n        #df[\"Date_IST\"] = df[\"Date_IST\"].to_pydatetime()\n        df['day'] = pd.to_datetime(df['Date_IST']).dt.day\n        df['month'] = pd.to_datetime(df['Date_IST']).dt.month\n        df['year'] = pd.to_datetime(df['Date_IST']).dt.year\n        df = df.dropna() \n    \n        Month = df['month'].tolist()\n        Year = df['year'].tolist()\n        Day =  df['day'].tolist()\n        EAE_DAY =  df['last'].tolist()\n        Date_IST =  df['Date_IST'].tolist()\n    \n        df = pd.DataFrame(\n        {'Month': Month,\n        'Year': Year,\n        'Day': Day,\n        'EAE_DAY': EAE_DAY,\n        'Date_IST': Date_IST,\n        'Device':  device[i]})\n        print(df)\n        sending(df)",
+        "output": "str",
+        "x": 380,
+        "y": 260,
+        "wires": [
+            [
+                "4b3e44a17c681ee3"
+            ]
+        ]
+    },
+    {
+        "id": "e0acea81704111d9",
+        "type": "template",
+        "z": "da53a1c7cff4af8c",
+        "name": "RefillEDay_inani1",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "python",
+        "syntax": "mustache",
+        "template": "import time\nimport datetime\nimport pandas as pd \nimport pytz\nimport calendar\nfrom influxdb import InfluxDBClient\nfrom datetime import date\n\ntoday = date.today()\nfifth = datetime.datetime.today() - datetime.timedelta(days=10)\np = (str(today))\nq = (str(fifth))\nx = p.split('-')\nuniqueday = int(x[2])\nuniquemonth = int(x[1])\nuniqueyear = int(x[0])\nts = datetime.datetime(uniqueyear,uniquemonth,uniqueday, 00, 00,00).timestamp()\nc = int(ts)\nTo = (c-19800)\n#To = 1643653799\n\ny = q.split('-')\nDay = (y[2])\nun = Day.split()\nuniquedayfrom = int(un[0])\nuniquemonthfrom = int(y[1])\nuniqueyearfrom = int(y[0])\ntsfrom = datetime.datetime(uniqueyearfrom,uniquemonthfrom,uniquedayfrom, 00, 00,00).timestamp()\nd = int(tsfrom)\nFrom = (d-19800)\n#From = 1643481000\n\npd.set_option('display.max_columns', None)  \npd.set_option('display.max_rows', None)\n\nYear = []\nMonth = []\nDay = []\nDevice = []\nEAE_DAY = []\nliveepoch = []\n\ndef sending(df):\n    for j in range(len(df)):\n        global Year\n        global Month\n        global Day \n        global Device\n        global EAE_DAY\n        global liveepoch\n        Year += [df['Year'].iloc[j]]\n        Month += [df['Month'].iloc[j]]\n        Day += [df['Day'].iloc[j]]\n        Device += [df['Device'].iloc[j]]\n        EAE_DAY += [df['EAE_DAY'].iloc[j]]\n        ts = datetime.datetime(Year[j],Month[j],Day[j], 00, 00,00).timestamp()\n        #ts = (calendar.timegm(Date_IST.timetuple()))\n        ns = int(ts)\n        string = str(ns) + \"000000000\"\n        liveepoch += [int(string)]\n\n        from influxdb import InfluxDBClient\n        client = InfluxDBClient('localhost', 8086)\n        dbs = client.get_list_database()\n        if 'warehousr' not in dbs:\n            client.create_database('warehousr')\n        client = InfluxDBClient('localhost', 8086, 'admin', 'admin', 'warehousr')\n        #print(v)\n        #json_payload = []\n\n        data = [\n            {\n            \"measurement\":\"Day\",\n            \"tags\": {\n                \"d\" : Device[j],\n                \"p\" : \"sualpha_inani_1_2MW\"\n                    },\n            \"time\" : liveepoch[j],\n            \"fields\": {\n                \"EAE_DAY\" : EAE_DAY[j]\n                }\n            }\n        ]\n        print(data)\n        #json_payload.append(data)\n        #print(client.write_points(data))\n        client.write_points(data)\n\nclient = InfluxDBClient(host = \"localhost\", port = \"8086\",username='admin', password='admin', database= 'warehousr')\n\nclient1 = InfluxDBClient(host = \"localhost\", port = \"8086\",username='admin', password='admin', database= 'datalake')\n\ndevice = ['EM01', 'INV01', 'INV02', 'INV03','INV04', 'INV05', 'INV06']\n\nresult = client.query('SELECT \"EAE_DAY\" FROM \"Day\" where p = \\'inani1_1.2MW\\' And time > now() - 10d group by \"d\",\"p\"')\n\nmiss = []\nfor t in range(len(device)):\n    points_day = list(result.get_points(measurement='Day', tags={'d': device[t], 'p' : 'sualpha_inani_1.2MW'}))\n    df_day = pd.DataFrame(points_day)\n    print(df_day)\n    if df_day.empty or df_day.eq(0).any().any():\n        miss += [device[t]]\n\nfor i in range(len(miss)):\n    result1 = client1.query('select last(\"value\") from v where d = \\''+miss[i]+'\\' AND f= \\'EAE_DAY_KWh\\' AND bd= \\'inani1_1.2MW\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms  group by time(1d,-330m), \"d\", \"bd\" fill(null)')\n    points_day = list(result1.get_points(measurement='v', tags={'d': miss[i]}))\n    df = pd.DataFrame(points_day)\n    if len(df) != 0:\n        df[\"Date_IST\"] = pd.to_datetime(df[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\n        df.Date_IST = pd.to_datetime(df.Date_IST)\n        #df[\"Date_IST\"] = df[\"Date_IST\"].to_pydatetime()\n        df['day'] = pd.to_datetime(df['Date_IST']).dt.day\n        df['month'] = pd.to_datetime(df['Date_IST']).dt.month\n        df['year'] = pd.to_datetime(df['Date_IST']).dt.year\n        df = df.dropna() \n    \n        Month = df['month'].tolist()\n        Year = df['year'].tolist()\n        Day =  df['day'].tolist()\n        EAE_DAY =  df['last'].tolist()\n        Date_IST =  df['Date_IST'].tolist()\n    \n        df = pd.DataFrame(\n        {'Month': Month,\n        'Year': Year,\n        'Day': Day,\n        'EAE_DAY': EAE_DAY,\n        'Date_IST': Date_IST,\n        'Device':  miss[i]})\n        sending(df)",
+        "output": "str",
+        "x": 370,
+        "y": 320,
+        "wires": [
+            [
+                "b77558973ab7c7dc"
+            ]
+        ]
+    },
+    {
+        "id": "b77558973ab7c7dc",
+        "type": "file",
+        "z": "da53a1c7cff4af8c",
+        "name": "",
+        "filename": "RefillEDay_inani1.py",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 600,
+        "y": 320,
+        "wires": [
+            [
+                "c3d83578858ba799"
+            ]
+        ]
+    },
+    {
+        "id": "c3d83578858ba799",
+        "type": "exec",
+        "z": "da53a1c7cff4af8c",
+        "command": "python3 RefillEDay_inani1.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 880,
+        "y": 320,
+        "wires": [
+            [
+                "92f539c95d3a3cf3"
+            ],
+            [
+                "f856ebcfab7abf1b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "92f539c95d3a3cf3",
+        "type": "debug",
+        "z": "da53a1c7cff4af8c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "f856ebcfab7abf1b",
+        "type": "debug",
+        "z": "da53a1c7cff4af8c",
+        "name": "error",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "7a316f55debe08b2",
+        "type": "template",
+        "z": "da53a1c7cff4af8c",
+        "name": "RefillEDay_inani2",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "python",
+        "syntax": "mustache",
+        "template": "import time\nimport datetime\nimport pandas as pd \nimport pytz\nimport calendar\nfrom influxdb import InfluxDBClient\nfrom datetime import date\n\ntoday = date.today()\nfifth = datetime.datetime.today() - datetime.timedelta(days=10)\np = (str(today))\nq = (str(fifth))\nx = p.split('-')\nuniqueday = int(x[2])\nuniquemonth = int(x[1])\nuniqueyear = int(x[0])\nts = datetime.datetime(uniqueyear,uniquemonth,uniqueday, 00, 00,00).timestamp()\nc = int(ts)\nTo = (c-19800)\n#To = 1643653799\n\ny = q.split('-')\nDay = (y[2])\nun = Day.split()\nuniquedayfrom = int(un[0])\nuniquemonthfrom = int(y[1])\nuniqueyearfrom = int(y[0])\ntsfrom = datetime.datetime(uniqueyearfrom,uniquemonthfrom,uniquedayfrom, 00, 00,00).timestamp()\nd = int(tsfrom)\nFrom = (d-19800)\n#From = 1643481000\n\npd.set_option('display.max_columns', None)  \npd.set_option('display.max_rows', None)\n\nYear = []\nMonth = []\nDay = []\nDevice = []\nEAE_DAY = []\nliveepoch = []\n\ndef sending(df):\n    for j in range(len(df)):\n        global Year\n        global Month\n        global Day \n        global Device\n        global EAE_DAY\n        global liveepoch\n        Year += [df['Year'].iloc[j]]\n        Month += [df['Month'].iloc[j]]\n        Day += [df['Day'].iloc[j]]\n        Device += [df['Device'].iloc[j]]\n        EAE_DAY += [df['EAE_DAY'].iloc[j]]\n        ts = datetime.datetime(Year[j],Month[j],Day[j], 00, 00,00).timestamp()\n        #ts = (calendar.timegm(Date_IST.timetuple()))\n        ns = int(ts)\n        string = str(ns) + \"000000000\"\n        liveepoch += [int(string)]\n\n        from influxdb import InfluxDBClient\n        client = InfluxDBClient('localhost', 8086)\n        dbs = client.get_list_database()\n        if 'warehousr' not in dbs:\n            client.create_database('warehousr')\n        client = InfluxDBClient('localhost', 8086, 'admin', 'admin', 'warehousr')\n        #print(v)\n        #json_payload = []\n\n        data = [\n            {\n            \"measurement\":\"Day\",\n            \"tags\": {\n                \"d\" : Device[j],\n                \"p\" : \"sualpha_inani_1_2MW\"\n                    },\n            \"time\" : liveepoch[j],\n            \"fields\": {\n                \"EAE_DAY\" : EAE_DAY[j]\n                }\n            }\n        ]\n        print(data)\n        #json_payload.append(data)\n        #print(client.write_points(data))\n        client.write_points(data)\n\nclient = InfluxDBClient(host = \"localhost\", port = \"8086\",username='admin', password='admin', database= 'warehousr')\n\nclient1 = InfluxDBClient(host = \"localhost\", port = \"8086\",username='admin', password='admin', database= 'datalake')\n\ndevice = ['EM02', 'INV07', 'INV08', 'INV09','INV10', 'INV11', 'INV12']\n\nresult = client.query('SELECT \"EAE_DAY\" FROM \"Day\" where p = \\'inani2_1.2MW\\' And time > now() - 10d group by \"d\",\"p\"')\n\nmiss = []\nfor t in range(len(device)):\n    points_day = list(result.get_points(measurement='Day', tags={'d': device[t], 'p' : 'sualpha_inani_1.2MW'}))\n    df_day = pd.DataFrame(points_day)\n    print(df_day)\n    if df_day.empty or df_day.eq(0).any().any():\n        miss += [device[t]]\n\nfor i in range(len(miss)):\n    result1 = client1.query('select last(\"value\") from v where d = \\''+miss[i]+'\\' AND f= \\'EAE_DAY_KWh\\' AND bd= \\'inani2_1.2MW\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms  group by time(1d,-330m), \"d\", \"bd\" fill(null)')\n    points_day = list(result1.get_points(measurement='v', tags={'d': miss[i]}))\n    df = pd.DataFrame(points_day)\n    if len(df) != 0:\n        df[\"Date_IST\"] = pd.to_datetime(df[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\n        df.Date_IST = pd.to_datetime(df.Date_IST)\n        #df[\"Date_IST\"] = df[\"Date_IST\"].to_pydatetime()\n        df['day'] = pd.to_datetime(df['Date_IST']).dt.day\n        df['month'] = pd.to_datetime(df['Date_IST']).dt.month\n        df['year'] = pd.to_datetime(df['Date_IST']).dt.year\n        df = df.dropna() \n    \n        Month = df['month'].tolist()\n        Year = df['year'].tolist()\n        Day =  df['day'].tolist()\n        EAE_DAY =  df['last'].tolist()\n        Date_IST =  df['Date_IST'].tolist()\n    \n        df = pd.DataFrame(\n        {'Month': Month,\n        'Year': Year,\n        'Day': Day,\n        'EAE_DAY': EAE_DAY,\n        'Date_IST': Date_IST,\n        'Device':  miss[i]})\n        sending(df)",
+        "output": "str",
+        "x": 370,
+        "y": 380,
+        "wires": [
+            [
+                "321c44c547b3ad2a"
+            ]
+        ]
+    },
+    {
+        "id": "321c44c547b3ad2a",
+        "type": "file",
+        "z": "da53a1c7cff4af8c",
+        "name": "",
+        "filename": "RefillEDay_inani2.py",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 600,
+        "y": 380,
+        "wires": [
+            [
+                "2880423d963cedc2"
+            ]
+        ]
+    },
+    {
+        "id": "2880423d963cedc2",
+        "type": "exec",
+        "z": "da53a1c7cff4af8c",
+        "command": "python3 RefillEDay_inani2.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 880,
+        "y": 380,
+        "wires": [
+            [
+                "92f539c95d3a3cf3"
+            ],
+            [
+                "f856ebcfab7abf1b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "92c47ef3103f293f",
+        "type": "template",
+        "z": "da53a1c7cff4af8c",
+        "name": "inanireport",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "python",
+        "syntax": "mustache",
+        "template": "import time\nimport datetime\nimport pandas as pd \nimport pytz\nimport calendar\nimport os\nimport numpy as np\nfrom openpyxl import Workbook\nfrom pandas import ExcelWriter\nfrom influxdb import InfluxDBClient\nfrom datetime import date\n\npd.set_option('display.max_columns', None)  \npd.set_option('display.max_rows', None) \n\nclient = InfluxDBClient(host = \"localhost\", port = \"8086\",username='admin', password='admin', database= 'warehousr')\ntoday = date.today()\np = (str(today))\nx = p.split('-')\nuniqueday = int(x[2])\nuniquemonth = int(x[1])\nuniqueyear = int(x[0])\nts = datetime.datetime(uniqueyear,uniquemonth,uniqueday, 00, 00,00).timestamp()\nc = int(ts)\nF = datetime.datetime(uniqueyear,uniquemonth,1, 00, 00,00).timestamp()\nFrom = int(F)\nTo = calendar.timegm(time.gmtime())\n\n\n###### Crct Query #####################\n#result = client.query('select last(value) from v where b = \\'B91\\' AND f= \\'EAE_DAY\\' AND time >= \\'2021-10-01T00:00:00Z\\' AND time <= \\'2021-10-07T00:00:00Z\\' group by time(1d,-330m), p',{},{},'s')\n######################################\n\nresult = client.query('SELECT last(EAE_DAY) FROM \"Day\" where p = \\'sualpha_inani_1_2MW\\' AND d = \\'EM01\\' AND  time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms group by time(1d,-330m), \"d\", \"p\" fill(null)')\nresult1 = client.query('SELECT last(EAE_DAY) FROM \"Day\" where p = \\'sualpha_inani_1_2MW\\' AND d = \\'EM02\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms group by time(1d,-330m), \"d\", \"p\" fill(null)')\nresult2 = client.query('SELECT last(EAE_DAY) FROM \"Day\" where p = \\'sualpha_inani_1_2MW\\' AND d = \\'INV01\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms group by time(1d,-330m), \"d\", \"p\" fill(null)')\nresult3 = client.query('SELECT last(EAE_DAY) FROM \"Day\" where p = \\'sualpha_inani_1_2MW\\' AND d = \\'INV02\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms group by time(1d,-330m), \"d\", \"p\" fill(null)')\nresult4 = client.query('SELECT last(EAE_DAY) FROM \"Day\" where p = \\'sualpha_inani_1_2MW\\' AND d = \\'INV03\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms group by time(1d,-330m), \"d\", \"p\" fill(null)')\nresult5 = client.query('SELECT last(EAE_DAY) FROM \"Day\" where p = \\'sualpha_inani_1_2MW\\' AND d = \\'INV04\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms group by time(1d,-330m), \"d\", \"p\" fill(null)')\nresult6 = client.query('SELECT last(EAE_DAY) FROM \"Day\" where p = \\'sualpha_inani_1_2MW\\' AND d = \\'INV05\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms group by time(1d,-330m), \"d\", \"p\" fill(null)')\nresult7 = client.query('SELECT last(EAE_DAY) FROM \"Day\" where p = \\'sualpha_inani_1_2MW\\' AND d = \\'INV06\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms group by time(1d,-330m), \"d\", \"p\" fill(null)')\nresult8 = client.query('SELECT last(EAE_DAY) FROM \"Day\" where p = \\'sualpha_inani_1_2MW\\' AND d = \\'INV07\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms group by time(1d,-330m), \"d\", \"p\" fill(null)')\nresult9 = client.query('SELECT last(EAE_DAY) FROM \"Day\" where p = \\'sualpha_inani_1_2MW\\' AND d = \\'INV08\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms group by time(1d,-330m), \"d\", \"p\" fill(null)')\nresult10 = client.query('SELECT last(EAE_DAY) FROM \"Day\" where p = \\'sualpha_inani_1_2MW\\' AND d = \\'INV09\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms group by time(1d,-330m), \"d\", \"p\" fill(null)')\nresult11 = client.query('SELECT last(EAE_DAY) FROM \"Day\" where p = \\'sualpha_inani_1_2MW\\' AND d = \\'INV10\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms group by time(1d,-330m), \"d\", \"p\" fill(null)')\nresult12 = client.query('SELECT last(EAE_DAY) FROM \"Day\" where p = \\'sualpha_inani_1_2MW\\' AND d = \\'INV11\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms group by time(1d,-330m), \"d\", \"p\" fill(null)')\nresult13 = client.query('SELECT last(EAE_DAY) FROM \"Day\" where p = \\'sualpha_inani_1_2MW\\' AND d = \\'INV12\\' AND time >= '+str(From)+\"000\"+'ms AND time <= '+str(To)+\"000\"+'ms group by time(1d,-330m), \"d\", \"p\" fill(null)')\n\n\npoints = list(result.get_points(measurement='Day'))\n#print(points)\ndf = pd.DataFrame(points) \ndf[\"Date_IST\"] = pd.to_datetime(df[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\ndf.Date_IST = pd.to_datetime(df.Date_IST)\ndf.rename(columns = {'last':'EM01_EAE_DAY'}, inplace = True)\ndf.drop(\"time\", axis=1, inplace=True)\ndf['EM01_EAE_DAY'] = df['EM01_EAE_DAY'].fillna(0)\n\n\npoints1 = list(result1.get_points(measurement='Day'))\n#print(points)\ndf1 = pd.DataFrame(points1) \ndf1[\"Date_IST\"] = pd.to_datetime(df1[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\ndf1.Date_IST = pd.to_datetime(df1.Date_IST)\ndf1.rename(columns = {'last':'EM02_EAE_DAY'}, inplace = True)\ndf1.drop(\"time\", axis=1, inplace=True)\ndf1['EM02_EAE_DAY'] = df1['EM02_EAE_DAY'].fillna(0)\n\npoints2 = list(result2.get_points(measurement='Day'))\n#print(points)\ndf2 = pd.DataFrame(points2) \ndf2[\"Date_IST\"] = pd.to_datetime(df2[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\ndf2.Date_IST = pd.to_datetime(df2.Date_IST)\ndf2.rename(columns = {'last':'INV01_EAE_DAY'}, inplace = True)\ndf2.drop(\"time\", axis=1, inplace=True)\ndf2['INV01_EAE_DAY'] = df2['INV01_EAE_DAY'].fillna(0)\n\npoints3 = list(result3.get_points(measurement='Day'))\n#print(points)\ndf3 = pd.DataFrame(points3) \ndf3[\"Date_IST\"] = pd.to_datetime(df3[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\ndf3.Date_IST = pd.to_datetime(df3.Date_IST)\ndf3.rename(columns = {'last':'INV02_EAE_DAY'}, inplace = True)\ndf3.drop(\"time\", axis=1, inplace=True)\ndf3['INV02_EAE_DAY'] = df3['INV02_EAE_DAY'].fillna(0)\n\n\npoints4 = list(result4.get_points(measurement='Day'))\n#print(points)\ndf4 = pd.DataFrame(points4) \ndf4[\"Date_IST\"] = pd.to_datetime(df4[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\ndf4.Date_IST = pd.to_datetime(df4.Date_IST)\ndf4.rename(columns = {'last':'INV03_EAE_DAY'}, inplace = True)\ndf4.drop(\"time\", axis=1, inplace=True)\ndf4['INV03_EAE_DAY'] = df4['INV03_EAE_DAY'].fillna(0)\n\npoints5 = list(result5.get_points(measurement='Day'))\n#print(points)\ndf5 = pd.DataFrame(points5) \ndf5[\"Date_IST\"] = pd.to_datetime(df5[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\ndf5.Date_IST = pd.to_datetime(df5.Date_IST)\ndf5.rename(columns = {'last':'INV04_EAE_DAY'}, inplace = True)\ndf5.drop(\"time\", axis=1, inplace=True)\ndf5['INV04_EAE_DAY'] = df5['INV04_EAE_DAY'].fillna(0)\n\npoints6 = list(result6.get_points(measurement='Day'))\n#print(points)\ndf6 = pd.DataFrame(points6) \ndf6[\"Date_IST\"] = pd.to_datetime(df6[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\ndf6.Date_IST = pd.to_datetime(df6.Date_IST)\ndf6.rename(columns = {'last':'INV05_EAE_DAY'}, inplace = True)\ndf6.drop(\"time\", axis=1, inplace=True)\ndf6['INV05_EAE_DAY'] = df6['INV05_EAE_DAY'].fillna(0)\n\n\npoints7 = list(result7.get_points(measurement='Day'))\n#print(points)\ndf7 = pd.DataFrame(points7) \ndf7[\"Date_IST\"] = pd.to_datetime(df7[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\ndf7.Date_IST = pd.to_datetime(df7.Date_IST)\ndf7.rename(columns = {'last':'INV06_EAE_DAY'}, inplace = True)\ndf7.drop(\"time\", axis=1, inplace=True)\ndf7['INV06_EAE_DAY'] = df7['INV06_EAE_DAY'].fillna(0)\n\npoints8 = list(result8.get_points(measurement='Day'))\n#print(points)\ndf8 = pd.DataFrame(points8) \ndf8[\"Date_IST\"] = pd.to_datetime(df8[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\ndf8.Date_IST = pd.to_datetime(df8.Date_IST)\ndf8.rename(columns = {'last':'INV07_EAE_DAY'}, inplace = True)\ndf8.drop(\"time\", axis=1, inplace=True)\ndf8['INV07_EAE_DAY'] = df8['INV07_EAE_DAY'].fillna(0)\n\npoints9 = list(result9.get_points(measurement='Day'))\n#print(points)\ndf9 = pd.DataFrame(points9) \ndf9[\"Date_IST\"] = pd.to_datetime(df9[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\ndf9.Date_IST = pd.to_datetime(df9.Date_IST)\ndf9.rename(columns = {'last':'INV08_EAE_DAY'}, inplace = True)\ndf9.drop(\"time\", axis=1, inplace=True)\ndf9['INV08_EAE_DAY'] = df9['INV08_EAE_DAY'].fillna(0)\n\npoints10 = list(result10.get_points(measurement='Day'))\n#print(points)\ndf10 = pd.DataFrame(points10) \ndf10[\"Date_IST\"] = pd.to_datetime(df10[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\ndf10.Date_IST = pd.to_datetime(df10.Date_IST)\ndf10.rename(columns = {'last':'INV09_EAE_DAY'}, inplace = True)\ndf10.drop(\"time\", axis=1, inplace=True)\ndf10['INV09_EAE_DAY'] = df10['INV09_EAE_DAY'].fillna(0)\n\npoints11 = list(result11.get_points(measurement='Day'))\n#print(points)\ndf11 = pd.DataFrame(points11) \ndf11[\"Date_IST\"] = pd.to_datetime(df11[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\ndf11.Date_IST = pd.to_datetime(df11.Date_IST)\ndf11.rename(columns = {'last':'INV10_EAE_DAY'}, inplace = True)\ndf11.drop(\"time\", axis=1, inplace=True)\ndf11['INV10_EAE_DAY'] = df11['INV10_EAE_DAY'].fillna(0)\n\n\npoints12 = list(result12.get_points(measurement='Day'))\n#print(points)\ndf12 = pd.DataFrame(points12) \ndf12[\"Date_IST\"] = pd.to_datetime(df12[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\ndf12.Date_IST = pd.to_datetime(df12.Date_IST)\ndf12.rename(columns = {'last':'INV11_EAE_DAY'}, inplace = True)\ndf12.drop(\"time\", axis=1, inplace=True)\ndf12['INV11_EAE_DAY'] = df12['INV11_EAE_DAY'].fillna(0)\n\npoints13 = list(result13.get_points(measurement='Day'))\n#print(points)\ndf13 = pd.DataFrame(points13) \ndf13[\"Date_IST\"] = pd.to_datetime(df13[\"time\"]) + pd.DateOffset(hours=5, minutes=30)\ndf13.Date_IST = pd.to_datetime(df13.Date_IST)\ndf13.rename(columns = {'last':'INV12_EAE_DAY'}, inplace = True)\ndf13.drop(\"time\", axis=1, inplace=True)\ndf13['INV12_EAE_DAY'] = df13['INV12_EAE_DAY'].fillna(0)\n\n#df1.fillna(method='ffill', inplace=True)\n\ndf14 = pd.merge(pd.merge(pd.merge(pd.merge(pd.merge(df,df1,on='Date_IST'),df2,on='Date_IST'),df3,on='Date_IST'),df4,on='Date_IST'),df5,on='Date_IST')\n\ndf15 = pd.merge(pd.merge(pd.merge(pd.merge(pd.merge(df14,df6,on='Date_IST'),df7,on='Date_IST'),df8,on='Date_IST'),df9,on='Date_IST'),df10,on='Date_IST')\n\ndffinal = pd.merge(pd.merge(pd.merge(df15,df11,on='Date_IST'),df12,on='Date_IST'),df13,on='Date_IST')\n\n#dffinal = pd.merge(df4, df5, on=\"Date_IST\")\n\n\n\n\ndffinal['Date'] = dffinal['Date_IST'].dt.date\ndffinal.drop('Date_IST', inplace=True, axis=1)\n#dffinal['Est_Gen_Day'] = pd.to_numeric(dffinal['Est_Gen_Day'])\n#dffinal['Est_Gen_Day'] = dffinal['Est_Gen_Day'] / 1000\n#dffinal['EAE_DAY'] = pd.to_numeric(dffinal['EAE_DAY'])\n#dffinal['EAE_DAY'] = dffinal['EAE_DAY'] / 1000\nprint(dffinal)\n\nDate = dffinal['Date'].tolist()\nEM01_EAE_DAY_MWh  = dffinal['EM01_EAE_DAY'].tolist()\nEM02_EAE_DAY_MWh  = dffinal['EM02_EAE_DAY'].tolist()\nINV01_EAE_DAY_MWh = dffinal['INV01_EAE_DAY'].tolist()\nINV02_EAE_DAY_MWh = dffinal['INV02_EAE_DAY'].tolist()\nINV03_EAE_DAY_MWh = dffinal['INV03_EAE_DAY'].tolist()\nINV04_EAE_DAY_MWh = dffinal['INV04_EAE_DAY'].tolist()\nINV05_EAE_DAY_MWh = dffinal['INV05_EAE_DAY'].tolist()\nINV06_EAE_DAY_MWh = dffinal['INV06_EAE_DAY'].tolist()\nINV07_EAE_DAY_MWh = dffinal['INV07_EAE_DAY'].tolist()\nINV08_EAE_DAY_MWh = dffinal['INV08_EAE_DAY'].tolist()\nINV09_EAE_DAY_MWh = dffinal['INV09_EAE_DAY'].tolist()\nINV10_EAE_DAY_MWh = dffinal['INV10_EAE_DAY'].tolist()\nINV11_EAE_DAY_MWh = dffinal['INV11_EAE_DAY'].tolist()\nINV12_EAE_DAY_MWh = dffinal['INV12_EAE_DAY'].tolist()\n\ndfexcel = pd.DataFrame(\n{'Date': Date,\n'EM01_EAE_DAY_MWh': EM01_EAE_DAY_MWh,\n'EM02_EAE_DAY_MWh': EM02_EAE_DAY_MWh,\n'INV01_EAE_DAY_MWh': INV01_EAE_DAY_MWh,\n'INV02_EAE_DAY_MWh': INV02_EAE_DAY_MWh,\n'INV03_EAE_DAY_MWh': INV03_EAE_DAY_MWh,\n'INV04_EAE_DAY_MWh': INV04_EAE_DAY_MWh,\n'INV05_EAE_DAY_MWh': INV05_EAE_DAY_MWh,\n'INV06_EAE_DAY_MWh': INV06_EAE_DAY_MWh,\n'INV07_EAE_DAY_MWh': INV07_EAE_DAY_MWh,\n'INV08_EAE_DAY_MWh': INV08_EAE_DAY_MWh,\n'INV09_EAE_DAY_MWh': INV09_EAE_DAY_MWh,\n'INV10_EAE_DAY_MWh': INV10_EAE_DAY_MWh,\n'INV11_EAE_DAY_MWh': INV11_EAE_DAY_MWh,\n'INV12_EAE_DAY_MWh': INV12_EAE_DAY_MWh\n})\n\ndfexcel = dfexcel.round(decimals = 2)\n#print(dfexcel)\ntodaystr = str(today)\nextension = \".csv\"\noutname = 'INANI_DGR_MM_' + todaystr + extension\n\noutdir = 'INANI_DGR_Report'\nfullname = os.path.join(os.path.dirname(__file__), outdir)\nif not os.path.exists(fullname):\n    os.mkdir(fullname)\n    \ndfexcel.to_csv(f\"{fullname}/{outname}\", index = False)\n\n#dfexcel.to_csv(r'DGR_Test.csv', index= False)\n\n# 7 days older file deletion #\n\npath = r\"/usr/src/node-red/INANI_DGR_Report/\"\nnow = time.time()\n\nfor filename in os.listdir(path):\n    # if os.stat(os.path.join(path, filename)).st_mtime < now - 7 * 86400:\n    if os.path.getmtime(os.path.join(path, filename)) < now - 7 * 86400:\n        if os.path.isfile(os.path.join(path, filename)):\n            os.remove(os.path.join(path, filename))",
+        "output": "str",
+        "x": 370,
+        "y": 500,
+        "wires": [
+            [
+                "f5ae29953b352119"
+            ]
+        ]
+    },
+    {
+        "id": "f5ae29953b352119",
+        "type": "file",
+        "z": "da53a1c7cff4af8c",
+        "name": "",
+        "filename": "inanireport.py",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 600,
+        "y": 500,
+        "wires": [
+            [
+                "585ee3334c29687f"
+            ]
+        ]
+    },
+    {
+        "id": "585ee3334c29687f",
+        "type": "exec",
+        "z": "da53a1c7cff4af8c",
+        "command": "python3 inanireport.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 840,
+        "y": 500,
+        "wires": [
+            [
+                "a1050a68596a4737"
+            ],
+            [
+                "fac5b8090ca0aa6e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a1050a68596a4737",
+        "type": "debug",
+        "z": "da53a1c7cff4af8c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "fac5b8090ca0aa6e",
+        "type": "debug",
+        "z": "da53a1c7cff4af8c",
+        "name": "error",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1150,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "16fd08f43378c61a",
+        "type": "cronplus",
+        "z": "da53a1c7cff4af8c",
+        "name": "",
+        "outputField": "payload",
+        "timeZone": "Asia/Kolkata",
+        "persistDynamic": false,
+        "commandResponseMsgOutput": "output1",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "date",
+                "payload": "",
+                "expressionType": "cron",
+                "expression": "0 50 23 * * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            }
+        ],
+        "x": 100,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "55cb6a8f75b55587",
+        "type": "cronplus",
+        "z": "da53a1c7cff4af8c",
+        "name": "",
+        "outputField": "payload",
+        "timeZone": "Asia/Kolkata",
+        "persistDynamic": false,
+        "commandResponseMsgOutput": "output1",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "date",
+                "payload": "",
+                "expressionType": "cron",
+                "expression": "0  45 19 * * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            }
+        ],
+        "x": 160,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "da05959c436c1438",
+        "type": "influxdb in",
+        "z": "da53a1c7cff4af8c",
+        "d": true,
+        "influxdb": "",
+        "name": "inani1_2MW",
+        "query": "SELECT last(\"EAE_DAY\") FROM \"Day\" WHERE (\"p\" = 'sualpha_inani_1_2MW' AND \"d\" = 'EM01') AND time >= now() - 2d GROUP BY time(1d,-330m) fill(null)",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "organisation",
+        "x": 490,
+        "y": 660,
+        "wires": [
+            [
+                "1de5d10c33a68d18"
+            ]
+        ]
+    },
+    {
+        "id": "4f750f8278921e37",
+        "type": "inject",
+        "z": "da53a1c7cff4af8c",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 237.5,
+        "y": 653.75,
+        "wires": [
+            [
+                "da05959c436c1438"
+            ]
+        ]
+    },
+    {
+        "id": "1de5d10c33a68d18",
+        "type": "debug",
+        "z": "da53a1c7cff4af8c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 757.5,
+        "y": 673.75,
+        "wires": []
+    },
+    {
+        "id": "e1ff2aadfe52a775",
+        "type": "function",
+        "z": "da53a1c7cff4af8c",
+        "name": "",
+        "func": "var tmp = msg.payload;\n//let message = {\n\n\t//attachments : [\n\t\t//{ \n\t\t    //filename: 'Test1.csv',\n\t\t    //path: 'C:\\Users\\IPLON\\Documents\\Test1.CSV'\n\t\t//}\n//\t\t       ]\n//}\nfunction sleep(milliseconds) {\n  const start = Date.now();\n  while (Date.now() - start < milliseconds);\n}\n\n//sleep(60000);\nfunction formatDate(date) {\n    var d = new Date(date),\n        month = '' + (d.getMonth() + 1),\n        day = '' + d.getDate(),\n        year = d.getFullYear();\n\n    if (month.length < 2) \n        month = '0' + month;\n    if (day.length < 2) \n        day = '0' + day;\n\n    return [year, month, day].join('-');\n}\n\nvar today = new Date();\nvar toDate = formatDate(today)\nnode.warn('sucess');\nmsg.to = \"venkateshprabhu@iplon.in\",\"kamaleish@iplon.in\",\"vignesh@iplon.in\";\nmsg.from =  \"Software.VControl@iplon.co.in\"; //\"iplonindia2022@gmail.com\";\nmsg.topic = \"iPLON_Daily Generation Report_INANI MW\";\nmsg.payload = \"Dear INANI Team,           PFA Daily Report\";\nlet text1 = \"INANI_DGR_MM_\";\nlet text2 = toDate;\nlet exten = '.csv';\nlet result = text1.concat(text2, exten);\nlet filepath = '/usr/src/node-red/INANI_DGR_Report/'\nlet filepath_1 = filepath.concat(result)\nmsg.attachments = [{\n\t                filename: result,\n                    path: filepath_1\n                    }// stream this file\n\t\t\t\t  ];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 607.5,
+        "y": 753.75,
+        "wires": [
+            [
+                "9b7963c0c8eeb080",
+                "28c431c63d9d21fe"
+            ]
+        ]
+    },
+    {
+        "id": "9b7963c0c8eeb080",
+        "type": "debug",
+        "z": "da53a1c7cff4af8c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1137.5,
+        "y": 713.75,
+        "wires": []
+    },
+    {
+        "id": "84497654db78b1a7",
+        "type": "cronplus",
+        "z": "da53a1c7cff4af8c",
+        "name": "",
+        "outputField": "payload",
+        "timeZone": "Asia/Kolkata",
+        "persistDynamic": false,
+        "commandResponseMsgOutput": "output1",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "date",
+                "payload": "",
+                "expressionType": "cron",
+                "expression": "0  00 20 * * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            }
+        ],
+        "x": 307.5,
+        "y": 753.75,
+        "wires": [
+            [
+                "e1ff2aadfe52a775"
+            ]
+        ]
+    },
+    {
+        "id": "28c431c63d9d21fe",
+        "type": "e-mail",
+        "z": "da53a1c7cff4af8c",
+        "server": "smtp.gmail.com",
+        "port": "25",
+        "secure": false,
+        "tls": true,
+        "name": "kamaleish@iplon.in,vignesh@iplon.in,venkateshprabhu@iplon.in",
+        "dname": "Mail ",
+        "x": 1157.5,
+        "y": 793.75,
+        "wires": []
+    },
+    {
+        "id": "fc672842.a00258",
+        "type": "inject",
+        "z": "fca45c0d043a12a2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 260,
+        "wires": [
+            [
+                "b25e3277.3c2e1"
+            ]
+        ]
+    },
+    {
+        "id": "b25e3277.3c2e1",
+        "type": "function",
+        "z": "fca45c0d043a12a2",
+        "name": "set payload",
+        "func": "msg = {};\nmsg.payload = [];\n\nmsg.payload[0] = {\n         \"id\": \"set-utc-time-now\",\n         \"name\": \"Set the current time in UTC\",\n         \"description\": \"Set the current time in UTC\",\n         \"request\": {\n             \"url\":\"{{apiBaseUrl}}/utc/settime\",\n             \"method\": \"Post\",\n             \"body\":{\n                 \"mode\": \"urlencoded\",\n                 \"urlencoded\": [\n                    {\n                     \"key\": \"nation\",\n                     \"value\": \"ko-kr\",\n                     \"description\" : \"nation code\"\n                    },\n                    {\n                     \"key\": \"nation2\",\n                     \"value\": \"ko-kr\"\n                    }\n                ]\n             }\n         }\n}\n\nmsg.payload[1] = {\n         \"id\": \"get-utc-time-now\",\n         \"name\": \"Get the current time in UTC\",\n         \"description\": \"Get the current time in UTC\",\n         \"request\": \"{{apiBaseUrl}}/utc/now?a=a\"\n}\n \n \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 260,
+        "wires": [
+            [
+                "8f0d17f2.22ad08"
+            ]
+        ]
+    },
+    {
+        "id": "17b5c8b4.023597",
+        "type": "debug",
+        "z": "fca45c0d043a12a2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "44086fc4.83877",
+        "type": "file",
+        "z": "fca45c0d043a12a2",
+        "name": "",
+        "filename": "/download/collection.json",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1000,
+        "y": 300,
+        "wires": [
+            [
+                "33dd9ec1.8c4352"
+            ]
+        ]
+    },
+    {
+        "id": "33dd9ec1.8c4352",
+        "type": "debug",
+        "z": "fca45c0d043a12a2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1230,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "8f0d17f2.22ad08",
+        "type": "postman",
+        "z": "fca45c0d043a12a2",
+        "name": "Payload to Postman Collection JSON",
+        "apiBaseUrl": "http://localhost",
+        "collectionName": "xmysql collection",
+        "version": "0.0.1",
+        "x": 650,
+        "y": 260,
+        "wires": [
+            [
+                "17b5c8b4.023597",
+                "44086fc4.83877"
+            ]
+        ]
+    },
+    {
+        "id": "c6896b6e.7a35b8",
+        "type": "function",
+        "z": "fca45c0d043a12a2",
+        "name": "set payload",
+        "func": "\nmsg.apiBaseUrl = msg.payload.apiBaseUrl;\nmsg.collectionName = msg.payload.collectionName;\nmsg.version = msg.payload.version;\n\nmsg.payload = msg.payload.items;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 420,
+        "wires": [
+            [
+                "debfaca0.10b3a",
+                "42e5a08c.37c08"
+            ]
+        ]
+    },
+    {
+        "id": "42e5a08c.37c08",
+        "type": "postman",
+        "z": "fca45c0d043a12a2",
+        "name": "Payload to Postman Collection JSON",
+        "apiBaseUrl": "",
+        "collectionName": "",
+        "version": "",
+        "x": 730,
+        "y": 400,
+        "wires": [
+            [
+                "35724443.92ec9c",
+                "d81583a.6a37e8"
+            ]
+        ]
+    },
+    {
+        "id": "56f3c1a5.e79d",
+        "type": "http in",
+        "z": "fca45c0d043a12a2",
+        "name": "",
+        "url": "/postman/create/collection",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 250,
+        "y": 420,
+        "wires": [
+            [
+                "c6896b6e.7a35b8"
+            ]
+        ]
+    },
+    {
+        "id": "35724443.92ec9c",
+        "type": "http response",
+        "z": "fca45c0d043a12a2",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1030,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "656c8102.2b047",
+        "type": "inject",
+        "z": "fca45c0d043a12a2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 600,
+        "wires": [
+            [
+                "bcbe9b6.4221768"
+            ]
+        ]
+    },
+    {
+        "id": "bcbe9b6.4221768",
+        "type": "function",
+        "z": "fca45c0d043a12a2",
+        "name": "set payload",
+        "func": "msg = {};\nmsg.payload = {};\n\nmsg.payload.apiBaseUrl = 'http://localhost/api';\nmsg.payload.collectionName = 'postman collection';\nmsg.payload.version = '0.0.1';\nmsg.payload.items = [];\n\nmsg.payload.items[0] = {\n         \"id\": \"set-utc-time-now\",\n         \"name\": \"Set the current time in UTC\",\n         \"description\": \"Set the current time in UTC\",\n         \"request\": {\n             \"url\":\"{{apiBaseUrl}}/utc/settime\",\n             \"method\": \"Post\",\n             \"body\":{\n                 \"mode\": \"urlencoded\",\n                 \"urlencoded\": [\n                    {\n                     \"key\": \"nation\",\n                     \"value\": \"ko-kr\",\n                     \"description\" : \"nation code\"\n                    },\n                    {\n                     \"key\": \"nation2\",\n                     \"value\": \"ko-kr\"\n                    }\n                ]\n             }\n         }\n}\n\nmsg.payload.items[1] = {\n         \"id\": \"get-utc-time-now\",\n         \"name\": \"Get the current time in UTC\",\n         \"description\": \"Get the current time in UTC\",\n         \"request\": \"{{apiBaseUrl}}/utc/now?a=a\"\n}\n \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 600,
+        "wires": [
+            [
+                "d2349579.556098"
+            ]
+        ]
+    },
+    {
+        "id": "d2349579.556098",
+        "type": "http request",
+        "z": "fca45c0d043a12a2",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:1880/postman/create/collection",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 590,
+        "y": 600,
+        "wires": [
+            [
+                "335c5bc1.8d6524"
+            ]
+        ]
+    },
+    {
+        "id": "335c5bc1.8d6524",
+        "type": "debug",
+        "z": "fca45c0d043a12a2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "d81583a.6a37e8",
+        "type": "debug",
+        "z": "fca45c0d043a12a2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "debfaca0.10b3a",
+        "type": "debug",
+        "z": "fca45c0d043a12a2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "891b3e25.76e4c",
+        "type": "inject",
+        "z": "7283d7a585b3b2fb",
+        "name": "",
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 290,
+        "y": 160,
+        "wires": [
+            [
+                "64a9bc70.9b5644"
+            ]
+        ]
+    },
+    {
+        "id": "64a9bc70.9b5644",
+        "type": "function",
+        "z": "7283d7a585b3b2fb",
+        "name": "Random Data",
+        "func": "var now = ( new Date() ).getTime();\nvar value = Math.floor( Math.random() * 100 );\nmsg.payload = {\n    tstamp: now,\n    data: value\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 532,
+        "y": 160,
+        "wires": [
+            [
+                "9c566cfe.63a99"
+            ]
+        ]
+    },
+    {
+        "id": "9c566cfe.63a99",
+        "type": "iot-datasource",
+        "z": "7283d7a585b3b2fb",
+        "name": "Random Datasource",
+        "tstampField": "",
+        "dataField": "",
+        "disableDiscover": false,
+        "x": 820,
+        "y": 162,
+        "wires": [
+            [
+                "76b3f6ae23e6da50"
+            ]
+        ]
+    },
+    {
+        "id": "cca5fe7a.335a",
+        "type": "inject",
+        "z": "7283d7a585b3b2fb",
+        "name": "",
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 290,
+        "y": 340,
+        "wires": [
+            [
+                "37e83d85.c817c2"
+            ]
+        ]
+    },
+    {
+        "id": "37e83d85.c817c2",
+        "type": "function",
+        "z": "7283d7a585b3b2fb",
+        "name": "Random Data",
+        "func": "var now = ( new Date() ).getTime();\nvar value = Math.floor( Math.random() * 100 );\nmsg.payload = {\n    tstamp: now,\n    data: value\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 532,
+        "y": 340,
+        "wires": [
+            [
+                "adfd9b1a.520268"
+            ]
+        ]
+    },
+    {
+        "id": "adfd9b1a.520268",
+        "type": "iot-datasource",
+        "z": "7283d7a585b3b2fb",
+        "name": "Random Datasource",
+        "tstampField": "",
+        "dataField": "",
+        "disableDiscover": false,
+        "x": 821,
+        "y": 340,
+        "wires": [
+            [
+                "17605e.ffe89fa2"
+            ]
+        ]
+    },
+    {
+        "id": "17605e.ffe89fa2",
+        "type": "function",
+        "z": "7283d7a585b3b2fb",
+        "name": "Random History",
+        "func": "// Get request timestamps\nvar start = msg.payload.start;\nvar end = msg.payload.end;\n\nvar data = [];\nfor( var ts = start; ts < end; ts += 1000 )\n{\n    var value = Math.floor( Math.random() * 100 );\n    data.push( {\n        tstamp: ts,\n        data: value\n    } );\n}\nmsg.payload = data;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 817,
+        "y": 443,
+        "wires": [
+            [
+                "adfd9b1a.520268"
+            ]
+        ]
+    },
+    {
+        "id": "83c0be0c.7c3f4",
+        "type": "inject",
+        "z": "7283d7a585b3b2fb",
+        "name": "",
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 600,
+        "wires": [
+            [
+                "1c86e948.e37917"
+            ]
+        ]
+    },
+    {
+        "id": "1c86e948.e37917",
+        "type": "function",
+        "z": "7283d7a585b3b2fb",
+        "name": "Random Data",
+        "func": "var now = ( new Date() ).getTime();\nvar value = Math.floor( Math.random() * 100 );\nmsg.payload = {\n    tstamp: now,\n    data: value\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 492,
+        "y": 600,
+        "wires": [
+            [
+                "9d399bc.f62c668"
+            ]
+        ]
+    },
+    {
+        "id": "9d399bc.f62c668",
+        "type": "iot-datasource",
+        "z": "7283d7a585b3b2fb",
+        "name": "Random Datasource",
+        "tstampField": "",
+        "dataField": "",
+        "disableDiscover": false,
+        "x": 781,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f28351b4.0d7cb",
+        "type": "inject",
+        "z": "7283d7a585b3b2fb",
+        "name": "",
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 249,
+        "y": 647,
+        "wires": [
+            [
+                "8fd198d.f702e68"
+            ]
+        ]
+    },
+    {
+        "id": "8fd198d.f702e68",
+        "type": "function",
+        "z": "7283d7a585b3b2fb",
+        "name": "Random Data",
+        "func": "var now = ( new Date() ).getTime();\nvar value = Math.floor( Math.random() * 50 ) + 25;\nmsg.payload = {\n    tstamp: now,\n    data: value\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 491,
+        "y": 647,
+        "wires": [
+            [
+                "4d6ef8ec.b29108"
+            ]
+        ]
+    },
+    {
+        "id": "4d6ef8ec.b29108",
+        "type": "iot-datasource",
+        "z": "7283d7a585b3b2fb",
+        "name": "Random Datasource 2",
+        "tstampField": "",
+        "dataField": "",
+        "disableDiscover": false,
+        "x": 780,
+        "y": 647,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5bbde735.a44218",
+        "type": "inject",
+        "z": "7283d7a585b3b2fb",
+        "name": "",
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 310,
+        "y": 780,
+        "wires": [
+            [
+                "2e833127.d17cce"
+            ]
+        ]
+    },
+    {
+        "id": "2e833127.d17cce",
+        "type": "function",
+        "z": "7283d7a585b3b2fb",
+        "name": "Random Data",
+        "func": "var now = ( new Date() ).getTime();\nvar value = Math.floor( Math.random() * 100 );\nmsg.payload = {\n    myTimestamp: now,\n    myInnerData: {\n        x : value,\n        y : value + 100,\n        z : value - 100\n    }\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 552,
+        "y": 780,
+        "wires": [
+            [
+                "e7879b6c.187868"
+            ]
+        ]
+    },
+    {
+        "id": "e7879b6c.187868",
+        "type": "iot-datasource",
+        "z": "7283d7a585b3b2fb",
+        "name": "Random Datasource",
+        "tstampField": "myTimestamp",
+        "dataField": "myInnerData",
+        "disableDiscover": false,
+        "x": 840,
+        "y": 782,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "76b3f6ae23e6da50",
+        "type": "debug",
+        "z": "7283d7a585b3b2fb",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "88096981.88df6",
+        "type": "comment",
+        "z": "430bd2ba824cc59c",
+        "name": "2) Request protected data",
+        "info": "",
+        "x": 290,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "88142578.39a2c",
+        "type": "function",
+        "z": "430bd2ba824cc59c",
+        "name": "Build header and payload",
+        "func": "msg.headers = {\n  'Authorization' : flow.get(\"bearer_token\")\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 360,
+        "wires": [
+            [
+                "bfde2608.8101b"
+            ]
+        ]
+    },
+    {
+        "id": "1abbf619.6524ca",
+        "type": "inject",
+        "z": "430bd2ba824cc59c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 360,
+        "wires": [
+            [
+                "88142578.39a2c"
+            ]
+        ]
+    },
+    {
+        "id": "bfde2608.8101b",
+        "type": "http request",
+        "z": "430bd2ba824cc59c",
+        "name": "GET Plant",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.enerest.world/api/v1/iplon/administration/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 710,
+        "y": 360,
+        "wires": [
+            [
+                "a8295408.7a4ea8"
+            ]
+        ]
+    },
+    {
+        "id": "6023edcb.a62c0c",
+        "type": "debug",
+        "z": "430bd2ba824cc59c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a8295408.7a4ea8",
+        "type": "json",
+        "z": "430bd2ba824cc59c",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 910,
+        "y": 360,
+        "wires": [
+            [
+                "6023edcb.a62c0c"
+            ]
+        ]
+    },
+    {
+        "id": "524b5cfcc1c1129b",
+        "type": "function",
+        "z": "430bd2ba824cc59c",
+        "name": "Build header and payload",
+        "func": "msg.headers = {\n  'Authorization' : flow.get(\"bearer_token\")\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 460,
+        "wires": [
+            [
+                "1718d97f389ae41a"
+            ]
+        ]
+    },
+    {
+        "id": "c6fcb111a05d4d56",
+        "type": "inject",
+        "z": "430bd2ba824cc59c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 460,
+        "wires": [
+            [
+                "524b5cfcc1c1129b"
+            ]
+        ]
+    },
+    {
+        "id": "1718d97f389ae41a",
+        "type": "http request",
+        "z": "430bd2ba824cc59c",
+        "name": "GET Production Today",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://localhost:3000/d/OXeGgYnVk/inv_1?orgId=1",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "basic",
+        "senderr": false,
+        "headers": [],
+        "x": 700,
+        "y": 460,
+        "wires": [
+            [
+                "a78c696c7901dbcf"
+            ]
+        ]
+    },
+    {
+        "id": "3836ac37f05ea7b1",
+        "type": "debug",
+        "z": "430bd2ba824cc59c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "42d912b0b5e9292f",
+        "type": "function",
+        "z": "430bd2ba824cc59c",
+        "name": "array of urls",
+        "func": "msg.url=[\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\",\n    \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\"\n\n]\nfor(var i = 0; i <msg.url.length; i++)\n{ \n    var url=msg.url[i]\n \n    var obj={\n    url\n}\n node.send(obj);\n}\n\nreturn null\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 640,
+        "wires": [
+            [
+                "04fa9912910b3998"
+            ]
+        ]
+    },
+    {
+        "id": "659813364ba7f914",
+        "type": "http request",
+        "z": "430bd2ba824cc59c",
+        "name": "GET Production Today",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 740,
+        "y": 640,
+        "wires": [
+            [
+                "bd9b5a552840651d"
+            ]
+        ]
+    },
+    {
+        "id": "75100aeca690d368",
+        "type": "inject",
+        "z": "430bd2ba824cc59c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 640,
+        "wires": [
+            [
+                "42d912b0b5e9292f"
+            ]
+        ]
+    },
+    {
+        "id": "04fa9912910b3998",
+        "type": "function",
+        "z": "430bd2ba824cc59c",
+        "name": "url and token",
+        "func": "msg.url\nmsg.headers = {\n  'Authorization' : flow.get(\"bearer_token\")\n};\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 640,
+        "wires": [
+            [
+                "659813364ba7f914"
+            ]
+        ]
+    },
+    {
+        "id": "bf3cce8cd6edd955",
+        "type": "comment",
+        "z": "430bd2ba824cc59c",
+        "name": "reading multiple url's",
+        "info": "",
+        "x": 290,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "6040797a85f1d89b",
+        "type": "function",
+        "z": "430bd2ba824cc59c",
+        "name": "iteraton",
+        "func": "let plantObj\n\nplantObj = []\n//for(j =0; j < msg.payload.length;j++)\nfor (var i =0; i < msg.payload[0].timestamp.length;i++)\n{\nvar obj={\n    Timestamp:msg.payload[0].timestamp[i],\n\"Swelect API_Test_Plant\":msg.payload[0].swelect_api_values[i],\n\"Swelect SBI_Admin_Office_Vizag\":msg.payload[0].swelect_sbi[i],\n\"OMPL 2 MWp Floating Plant\":msg.payload[0].ompl_2MWp[i],\n}\n\nplantObj.push(obj)\n}\nmsg.payload =plantObj\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 700,
+        "wires": [
+            [
+                "614ce874b13915fe"
+            ]
+        ]
+    },
+    {
+        "id": "614ce874b13915fe",
+        "type": "csv",
+        "z": "430bd2ba824cc59c",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "once",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": true,
+        "x": 750,
+        "y": 700,
+        "wires": [
+            [
+                "163b1a6a76f8b566"
+            ]
+        ]
+    },
+    {
+        "id": "bfc0f9a8f37dfdb3",
+        "type": "function",
+        "z": "430bd2ba824cc59c",
+        "name": "object to array",
+        "func": "\n let plantObj\n\nplantObj = []\n\n//for (i =0; i < msg.payload.length;i++)\n//{\n var swelect_api=msg.payload.Swelect_API_Test_Plant[0].dataPoints\n var keys=Object.keys(swelect_api);\n var swelect_api_values=Object.values(swelect_api);\n var swelect_sbi=Object.values(msg.payload.Swelect_SBI_Admin_Office_Vizag[0].dataPoints);\n var ompl_2MWp=Object.values(msg.payload.OMPL_2_MWp_Floating_Plant[0].dataPoints);\nvar obj={\n  timestamp:keys,\n       swelect_api_values,\n       swelect_sbi,\n       ompl_2MWp\n\n}\n\nplantObj.push(obj)\n//}\nmsg.payload =plantObj\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 700,
+        "wires": [
+            [
+                "6040797a85f1d89b"
+            ]
+        ]
+    },
+    {
+        "id": "163b1a6a76f8b566",
+        "type": "file",
+        "z": "430bd2ba824cc59c",
+        "name": "sdsapi.csv",
+        "filename": "/usr/src/node-red/sdsapi.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 890,
+        "y": 700,
+        "wires": [
+            [
+                "305c8a66d2f86186"
+            ]
+        ]
+    },
+    {
+        "id": "a78c696c7901dbcf",
+        "type": "json",
+        "z": "430bd2ba824cc59c",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 890,
+        "y": 460,
+        "wires": [
+            [
+                "3836ac37f05ea7b1"
+            ]
+        ]
+    },
+    {
+        "id": "ff34b1d23d3b14a1",
+        "type": "file in",
+        "z": "430bd2ba824cc59c",
+        "name": "opcua.csv",
+        "filename": "/usr/src/node-red/sdsapi.csv",
+        "filenameType": "str",
+        "format": "lines",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 500,
+        "y": 780,
+        "wires": [
+            [
+                "f7f88c84995ebdf4"
+            ]
+        ]
+    },
+    {
+        "id": "ed1dd64ed33d5435",
+        "type": "inject",
+        "z": "430bd2ba824cc59c",
+        "name": "1) Insert nodeId items",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 300,
+        "y": 780,
+        "wires": [
+            [
+                "ff34b1d23d3b14a1"
+            ]
+        ]
+    },
+    {
+        "id": "f7f88c84995ebdf4",
+        "type": "csv",
+        "z": "430bd2ba824cc59c",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "once",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": false,
+        "include_null_values": true,
+        "x": 650,
+        "y": 780,
+        "wires": [
+            [
+                "1026bb46b2b631bd"
+            ]
+        ]
+    },
+    {
+        "id": "1026bb46b2b631bd",
+        "type": "debug",
+        "z": "430bd2ba824cc59c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "url",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "bd9b5a552840651d",
+        "type": "function",
+        "z": "430bd2ba824cc59c",
+        "name": "combine",
+        "func": "context.data = context.data || {};\nswitch(msg.url){\n    case \"https://api.enerest.world/api/v1/iplon/visualization/plant/622a8cd2-e3d1-11eb-a4c6-960000a1d181/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\":\n        context.data.Swelect_API_Test_Plant = msg.payload;\n        msg = null;\n        break;\n        \n    case \"https://api.enerest.world/api/v1/iplon/visualization/plant/c18022f8-8d26-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\":\n        context.data.Swelect_SBI_Admin_Office_Vizag = msg.payload;\n        msg = null;\n        break;\n    \n    case \"https://api.enerest.world/api/v1/iplon/visualization/plant/350abfbe-8d27-11eb-a8be-001e6799788c/channels?channelNames[]=ProdPac&dateFrom=today&dateTo=today\":\n        context.data.OMPL_2_MWp_Floating_Plant = msg.payload;\n        msg = null;\n        break;\n}\nif(context.data.Swelect_API_Test_Plant != null && context.data.Swelect_SBI_Admin_Office_Vizag != null&& context.data.OMPL_2_MWp_Floating_Plant != null){\n    var data_combine = {\n        \"Swelect_API_Test_Plant\": context.data.Swelect_API_Test_Plant,\n        \"Swelect_SBI_Admin_Office_Vizag\":context.data.Swelect_SBI_Admin_Office_Vizag,\n        \"OMPL_2_MWp_Floating_Plant\":context.data.OMPL_2_MWp_Floating_Plant\n        }\n    context.data = null\n    return {payload: data_combine};\n}  ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 640,
+        "wires": [
+            [
+                "bfc0f9a8f37dfdb3"
+            ]
+        ]
+    },
+    {
+        "id": "305c8a66d2f86186",
+        "type": "debug",
+        "z": "430bd2ba824cc59c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "84f9b499e8f2fea7",
+        "type": "http request",
+        "z": "430bd2ba824cc59c",
+        "name": "solarlog",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://auth.enerest.world/auth/realms/quotaapi/protocol/openid-connect/token",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 620,
+        "y": 180,
+        "wires": [
+            [
+                "0404ea46b874a22d"
+            ]
+        ]
+    },
+    {
+        "id": "01d0ec41161fed26",
+        "type": "function",
+        "z": "430bd2ba824cc59c",
+        "name": "Build header and payload",
+        "func": "msg.headers = {\n  'Content-Type' : 'application/x-www-form-urlencoded'\n};\n\n// client backend-service\n/*\nmsg.payload = {'grant_type':'password', \n               'client_id':'backend-service',\n               'username':'alice',\n               'password':'alice',\n               'client_secret':'secret'\n              };\n*/\n\nmsg.payload = {'grant_type':'client_credentials', \n               'client_id':'650fb07e-8a18-4907-a6c4-e4f432f52cb2',\n               'client_secret':'b7f327e7-60de-4cb5-909a-ee916445e143'\n              };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 180,
+        "wires": [
+            [
+                "84f9b499e8f2fea7"
+            ]
+        ]
+    },
+    {
+        "id": "f2edb8cbd5872dd2",
+        "type": "comment",
+        "z": "430bd2ba824cc59c",
+        "name": "1) Request bearer access token",
+        "info": "",
+        "x": 290,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "469ac06808829b9d",
+        "type": "debug",
+        "z": "430bd2ba824cc59c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "0404ea46b874a22d",
+        "type": "json",
+        "z": "430bd2ba824cc59c",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 770,
+        "y": 180,
+        "wires": [
+            [
+                "a0dbeeb197c93509"
+            ]
+        ]
+    },
+    {
+        "id": "a0dbeeb197c93509",
+        "type": "function",
+        "z": "430bd2ba824cc59c",
+        "name": "set_bearer_token",
+        "func": "flow.set(\"bearer_token\", \"Bearer \" + msg.payload.access_token);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 180,
+        "wires": [
+            [
+                "469ac06808829b9d"
+            ]
+        ]
+    },
+    {
+        "id": "a1415ae4e77af73e",
+        "type": "comment",
+        "z": "430bd2ba824cc59c",
+        "name": "Bearer access token saved as flow variable",
+        "info": "",
+        "x": 1040,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "40e2d76be3db9af6",
+        "type": "inject",
+        "z": "430bd2ba824cc59c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "01d0ec41161fed26"
+            ]
+        ]
+    },
+    {
+        "id": "de8150aa.71733",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "SetTimeRange",
+        "func": "msg.fromdate=msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 200,
+        "wires": [
+            [
+                "aeaaadf4.7dcb",
+                "9d22cca6.a6c168",
+                "1fce5cfb78bbced8"
+            ]
+        ]
+    },
+    {
+        "id": "14f5cd67.1fbd6b",
+        "type": "ui_template",
+        "z": "f6f2187d.f17ca8",
+        "group": "",
+        "name": "Line Chart",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<html>\n<iframe id=\"myFrame1\" width=\"600px\" height=\"300px\" style = \"overflow:hidden; margin:auto; border:0px solid green;\"></iframe>\n\n<script>\n//NOTE, more then one chart on a page, rename in the second and following \n//templates the \"myframe\" variable so that every template has a unique name.\n(function(scope) {\n    // watch msg object from Node-RED\n    scope.$watch('msg', function(msg) {\n        // new message received\n        var x = document.getElementById('myFrame1');\n        x.setAttribute('src', msg.payload); \n        });\n})(scope);\n</script>\n</html>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 1090,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aeaaadf4.7dcb",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "BuildTemplate",
+        "func": "//NOTE, more then one chart on a page, rename in the second and following \n//templates the \"myframe\" variable so that every template has a unique name.\n\nlet panelid=2\n\nmsg.payload = \"http://localhost:3000/d-solo/OXeGgYnVk/inv_1?orgId=2\"+\n\"&refresh=1m\"+\n\"&theme=light\"+\n\"&from=\"+ msg.fromdate +\n\"&to=now&panelId=\"+panelid\n\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 180,
+        "wires": [
+            [
+                "14f5cd67.1fbd6b"
+            ]
+        ]
+    },
+    {
+        "id": "9d22cca6.a6c168",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "BuildTemplate",
+        "func": "//NOTE, more then one chart on a page, rename in the second and following \n//templates the \"myframe\" variable so that every template has a unique name.\n\nlet panelid=7\n\nmsg.payload = \"http://localhost:3000/d-solo/OXeGgYnVk/inv_1?orgId=2\"+\n\"&refresh=1m\"+\n\"&theme=dark\"+\n\"&from=\"+ msg.fromdate +\n\"&to=\"+ msg.enddate +\n\"&panelId=\"+panelid\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 240,
+        "wires": [
+            [
+                "964cea47caf98b7e"
+            ]
+        ]
+    },
+    {
+        "id": "a9fb70d370f4f6f1",
+        "type": "ui_dropdown",
+        "z": "f6f2187d.f17ca8",
+        "name": "Range Dropdown",
+        "label": "Interval",
+        "tooltip": "",
+        "place": "Select Interval",
+        "group": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "7 D",
+                "value": "now-7d",
+                "type": "str"
+            },
+            {
+                "label": "14 D",
+                "value": "now-14d",
+                "type": "str"
+            },
+            {
+                "label": "20 D",
+                "value": "now-20d",
+                "type": "str"
+            },
+            {
+                "label": "30 D",
+                "value": "now-30d",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 430,
+        "y": 200,
+        "wires": [
+            [
+                "de8150aa.71733"
+            ]
+        ]
+    },
+    {
+        "id": "b372fba84ebeb01e",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "Trigger on start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "now-14d",
+        "payloadType": "str",
+        "x": 200,
+        "y": 200,
+        "wires": [
+            [
+                "a9fb70d370f4f6f1"
+            ]
+        ]
+    },
+    {
+        "id": "964cea47caf98b7e",
+        "type": "ui_template",
+        "z": "f6f2187d.f17ca8",
+        "group": "",
+        "name": "Line Chart",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<html>\n<iframe id=\"myFrame2\" width=\"600px\" height=\"300px\" style = \"overflow:hidden; margin:auto; border:0px solid green;\"></iframe>\n\n<script>\n//NOTE, more then one chart on a page, rename in the second and following \n//templates the \"myframe\" variable so that every template has a unique name.\n(function(scope) {\n    // watch msg object from Node-RED\n    scope.$watch('msg', function(msg) {\n        // new message received\n        var x = document.getElementById('myFrame2');\n        x.setAttribute('src', msg.payload); \n        });\n})(scope);\n</script>\n</html>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 1090,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1fce5cfb78bbced8",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "BuildTemplate",
+        "func": "//NOTE, more then one chart on a page, rename in the second and following \n//templates the \"myframe\" variable so that every template has a unique name.\n\nlet panelid=8\n\nmsg.payload = \"http://localhost:3000/d-solo/OXeGgYnVk/inv_1?orgId=2\"+\n\"&refresh=1m\"+\n\"&theme=dark\"+\n\"&from=\"+ msg.fromdate +\n\"&to=\"+ msg.enddate +\n\"&panelId=\"+panelid\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 300,
+        "wires": [
+            [
+                "f2caed9412adb10c"
+            ]
+        ]
+    },
+    {
+        "id": "f2caed9412adb10c",
+        "type": "ui_template",
+        "z": "f6f2187d.f17ca8",
+        "group": "",
+        "name": "Line Chart",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<html>\n<iframe id=\"myFrame3\" width=\"600px\" height=\"300px\" style = \"overflow:hidden; margin:auto; border:0px solid green;\"></iframe>\n\n<script>\n//NOTE, more then one chart on a page, rename in the second and following \n//templates the \"myframe\" variable so that every template has a unique name.\n(function(scope) {\n    // watch msg object from Node-RED\n    scope.$watch('msg', function(msg) {\n        // new message received\n        var x = document.getElementById('myFrame3');\n        x.setAttribute('src', msg.payload); \n        });\n})(scope);\n</script>\n</html>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 1110,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0388d2fdf8b520bb",
+        "type": "file in",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "filename": "/home/iplon/Desktop/poornima/inv1.jpg",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 870,
+        "y": 180,
+        "wires": [
+            [
+                "ea8eddf1fa818b9b"
+            ]
+        ]
+    },
+    {
+        "id": "45c1a8cd7778165b",
+        "type": "inject",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "timestamp",
+        "payloadType": "str",
+        "x": 140,
+        "y": 340,
+        "wires": [
+            [
+                "e1b67ff8a3b1f192",
+                "45748483f7bd2907",
+                "8ff6db906fee89e1",
+                "18dd23c131d2e034"
+            ]
+        ]
+    },
+    {
+        "id": "1f19807b9e72981b",
+        "type": "puppeteer-page-screenshot",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "fullpage": true,
+        "x": 450,
+        "y": 180,
+        "wires": [
+            [
+                "91b1368f6c457f2c"
+            ]
+        ]
+    },
+    {
+        "id": "e1b67ff8a3b1f192",
+        "type": "puppeteer-browser-launch",
+        "z": "18b91be20995c6da",
+        "timeout": "60000",
+        "slowMo": 0,
+        "headless": true,
+        "debugport": 0,
+        "devtools": true,
+        "name": "",
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "e06c6c8b846755d4"
+            ]
+        ]
+    },
+    {
+        "id": "91b1368f6c457f2c",
+        "type": "jimp-image",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "/home/iplon/Desktop/poornima/inv1.jpg",
+        "parameter1Type": "str",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 630,
+        "y": 180,
+        "wires": [
+            [
+                "0388d2fdf8b520bb"
+            ]
+        ]
+    },
+    {
+        "id": "e06c6c8b846755d4",
+        "type": "puppeteer-page-goto",
+        "z": "18b91be20995c6da",
+        "name": "INV1",
+        "url": "http://localhost:3000/d/OXeGgYnVk/inv_1?orgId=2",
+        "urltype": "str",
+        "waitUntil": "networkidle0",
+        "x": 290,
+        "y": 180,
+        "wires": [
+            [
+                "1f19807b9e72981b"
+            ]
+        ]
+    },
+    {
+        "id": "2886c30da4e65f02",
+        "type": "puppeteer-page-screenshot",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "fullpage": true,
+        "x": 450,
+        "y": 260,
+        "wires": [
+            [
+                "e73359e1b3092327"
+            ]
+        ]
+    },
+    {
+        "id": "e73359e1b3092327",
+        "type": "jimp-image",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "/home/iplon/Desktop/poornima/inv2.jpg",
+        "parameter1Type": "str",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 590,
+        "y": 260,
+        "wires": [
+            [
+                "0c5aa936ea515d20"
+            ]
+        ]
+    },
+    {
+        "id": "d567b659facc3bab",
+        "type": "puppeteer-page-goto",
+        "z": "18b91be20995c6da",
+        "name": "INV2",
+        "url": "http://localhost:3000/d/5oC9VDKVk/inv_2?orgId=2",
+        "urltype": "str",
+        "waitUntil": "networkidle0",
+        "x": 290,
+        "y": 260,
+        "wires": [
+            [
+                "2886c30da4e65f02"
+            ]
+        ]
+    },
+    {
+        "id": "0c5aa936ea515d20",
+        "type": "file in",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "filename": "/home/iplon/Desktop/poornima/inv2.jpg",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 810,
+        "y": 260,
+        "wires": [
+            [
+                "0dc29ad66aac1844"
+            ]
+        ]
+    },
+    {
+        "id": "45748483f7bd2907",
+        "type": "puppeteer-browser-launch",
+        "z": "18b91be20995c6da",
+        "timeout": "60000",
+        "slowMo": 0,
+        "headless": true,
+        "debugport": 0,
+        "devtools": true,
+        "name": "",
+        "x": 140,
+        "y": 260,
+        "wires": [
+            [
+                "d567b659facc3bab"
+            ]
+        ]
+    },
+    {
+        "id": "ea8eddf1fa818b9b",
+        "type": "base64",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 1120,
+        "y": 180,
+        "wires": [
+            [
+                "3bd2cb29433d4503"
+            ]
+        ]
+    },
+    {
+        "id": "0dc29ad66aac1844",
+        "type": "base64",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 1040,
+        "y": 260,
+        "wires": [
+            [
+                "c877be334c24933d"
+            ]
+        ]
+    },
+    {
+        "id": "186a78a6bca8b3a7",
+        "type": "file",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "filename": "/home/iplon/Desktop/poornima/hysolwin1.pdf",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 790,
+        "y": 780,
+        "wires": [
+            [
+                "67840405835f7247"
+            ]
+        ]
+    },
+    {
+        "id": "145a4d16b2ca7ed1",
+        "type": "pdfmake",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "outputType": "Buffer",
+        "inputProperty": "payload",
+        "options": "{}",
+        "outputProperty": "payload",
+        "x": 520,
+        "y": 780,
+        "wires": [
+            [
+                "186a78a6bca8b3a7"
+            ]
+        ]
+    },
+    {
+        "id": "ba7bd6c993f1964a",
+        "type": "template",
+        "z": "18b91be20995c6da",
+        "name": "Wattnexx",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"pageSize\": \"A4\",\n    \"pageOrientation\": \"portrait\",\n    \"pageMargins\": [\n        40,\n        60,\n        40,\n        60\n    ],\n    \"info\": {\n        \"title\": \"Wattnexx reports\",\n        \"author\": \"Poornima\",\n        \"subject\": \"Monthly\",\n        \"keywords\": \"Micro Grid\"\n    },\n    \"content\": [\n        \"\\t\\t\\t\",\"Hysolwin Inverter Reports\",\n        \"\\n\",\n        \"\\n\",\n        \"1.Aim : \",\n        \"\\n\",\n        \"This report contains the details of all inverter of the site.\",\n        \"\\n\",\n        \"2. INV1 :\",\n        \"\\n\",\n        \"This screen shows the today generation,total generation & active power of the first inverter in plant.\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.inv1}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        },\n        \"\\n\",\n        \"3.INV2 :\",\n        \"\\n\",\n        \"This screen shows the today generation,total generation & active power of the second inverter in plant.\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.inv2}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        },\n        \"\\n\",\n        \"4.INV3 :\",\n        \"\\n\",\n        \"This screen shows the today generation,total generation & active power of the third inverter in plant.\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.inv3}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        },\n        \"\\n\",\n        \"5.INV4 :\",\n        \"\\n\",\n        \"This screen shows the today generation,total generation & active power of the fourth inverter in plant.\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.inv4}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        }\n    ]\n}",
+        "output": "json",
+        "x": 340,
+        "y": 780,
+        "wires": [
+            [
+                "145a4d16b2ca7ed1"
+            ]
+        ]
+    },
+    {
+        "id": "c877be334c24933d",
+        "type": "change",
+        "z": "18b91be20995c6da",
+        "name": "Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "inv2",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1180,
+        "y": 260,
+        "wires": [
+            [
+                "603bc6b18be2b558"
+            ]
+        ]
+    },
+    {
+        "id": "603bc6b18be2b558",
+        "type": "function",
+        "z": "18b91be20995c6da",
+        "name": "combine",
+        "func": "context.data = context.data || {};\nswitch(msg.topic){\n    case \"inv1\":\n        context.data.inv1 = msg.payload;\n        msg = null;\n        break;\n    case \"inv2\":\n        context.data.inv2 = msg.payload;\n        msg = null;\n        break;\n    case \"inv3\":\n        context.data.inv3 = msg.payload;\n        msg = null;\n        break;\n    case \"inv4\":\n        context.data.inv4 = msg.payload;\n        msg = null;\n        break;\n}\nif (context.data.inv1 != null && context.data.inv2 != null && context.data.inv3 != null && context.data.inv4 != null){\n    var data_combine = {\n        \"inv1\": context.data.inv1,\n        \"inv2\": context.data.inv2,\n        \"inv3\": context.data.inv3,\n        \"inv4\": context.data.inv4\n       \n    }\n    context.data = null\n    return {payload: data_combine};\n}  ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 160,
+        "y": 780,
+        "wires": [
+            [
+                "ba7bd6c993f1964a"
+            ]
+        ]
+    },
+    {
+        "id": "67840405835f7247",
+        "type": "debug",
+        "z": "18b91be20995c6da",
+        "name": "debug 45",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "7578e5e6c9fdefd1",
+        "type": "file in",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "filename": "/home/iplon/Desktop/poornima/inv3.jpg",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 750,
+        "y": 420,
+        "wires": [
+            [
+                "22a1a680b8de37c0"
+            ]
+        ]
+    },
+    {
+        "id": "5a2405bce9b7c275",
+        "type": "puppeteer-page-screenshot",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "fullpage": true,
+        "x": 370,
+        "y": 420,
+        "wires": [
+            [
+                "c1514fae4c61f21d"
+            ]
+        ]
+    },
+    {
+        "id": "8ff6db906fee89e1",
+        "type": "puppeteer-browser-launch",
+        "z": "18b91be20995c6da",
+        "timeout": "60000",
+        "slowMo": 0,
+        "headless": true,
+        "debugport": 0,
+        "devtools": true,
+        "name": "",
+        "x": 100,
+        "y": 420,
+        "wires": [
+            [
+                "1caada3a4878fe33"
+            ]
+        ]
+    },
+    {
+        "id": "c1514fae4c61f21d",
+        "type": "jimp-image",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "/home/iplon/Desktop/poornima/inv3.jpg",
+        "parameter1Type": "str",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 510,
+        "y": 420,
+        "wires": [
+            [
+                "7578e5e6c9fdefd1"
+            ]
+        ]
+    },
+    {
+        "id": "1caada3a4878fe33",
+        "type": "puppeteer-page-goto",
+        "z": "18b91be20995c6da",
+        "name": "INV3",
+        "url": "http://localhost:3000/d/xA_iIDK4k/inv_3?orgId=2",
+        "urltype": "str",
+        "waitUntil": "networkidle0",
+        "x": 230,
+        "y": 420,
+        "wires": [
+            [
+                "5a2405bce9b7c275"
+            ]
+        ]
+    },
+    {
+        "id": "e5d9767052cdaab8",
+        "type": "puppeteer-page-screenshot",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "fullpage": true,
+        "x": 410,
+        "y": 520,
+        "wires": [
+            [
+                "78952132743738cd"
+            ]
+        ]
+    },
+    {
+        "id": "78952132743738cd",
+        "type": "jimp-image",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "/home/iplon/Desktop/poornima/inv4.jpg",
+        "parameter1Type": "str",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 550,
+        "y": 520,
+        "wires": [
+            [
+                "c58e3943627a92ce"
+            ]
+        ]
+    },
+    {
+        "id": "0475414b8a4657a3",
+        "type": "puppeteer-page-goto",
+        "z": "18b91be20995c6da",
+        "name": "INV4",
+        "url": "http://localhost:3000/d/9vzNIDFVk/inv_4?orgId=2",
+        "urltype": "str",
+        "waitUntil": "networkidle0",
+        "x": 250,
+        "y": 520,
+        "wires": [
+            [
+                "e5d9767052cdaab8"
+            ]
+        ]
+    },
+    {
+        "id": "c58e3943627a92ce",
+        "type": "file in",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "filename": "/home/iplon/Desktop/poornima/inv4.jpg",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 770,
+        "y": 520,
+        "wires": [
+            [
+                "020677708236030b"
+            ]
+        ]
+    },
+    {
+        "id": "18dd23c131d2e034",
+        "type": "puppeteer-browser-launch",
+        "z": "18b91be20995c6da",
+        "timeout": "60000",
+        "slowMo": 0,
+        "headless": true,
+        "debugport": 0,
+        "devtools": true,
+        "name": "",
+        "x": 100,
+        "y": 520,
+        "wires": [
+            [
+                "0475414b8a4657a3"
+            ]
+        ]
+    },
+    {
+        "id": "22a1a680b8de37c0",
+        "type": "base64",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 980,
+        "y": 420,
+        "wires": [
+            [
+                "8510e23571f306bb"
+            ]
+        ]
+    },
+    {
+        "id": "020677708236030b",
+        "type": "base64",
+        "z": "18b91be20995c6da",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 1000,
+        "y": 520,
+        "wires": [
+            [
+                "31073c57c903d7c4"
+            ]
+        ]
+    },
+    {
+        "id": "31073c57c903d7c4",
+        "type": "change",
+        "z": "18b91be20995c6da",
+        "name": "Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "inv4",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1140,
+        "y": 520,
+        "wires": [
+            [
+                "603bc6b18be2b558"
+            ]
+        ]
+    },
+    {
+        "id": "8510e23571f306bb",
+        "type": "change",
+        "z": "18b91be20995c6da",
+        "name": "Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "inv3",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1140,
+        "y": 420,
+        "wires": [
+            [
+                "603bc6b18be2b558"
+            ]
+        ]
+    },
+    {
+        "id": "3bd2cb29433d4503",
+        "type": "change",
+        "z": "18b91be20995c6da",
+        "name": "Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "inv1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1260,
+        "y": 180,
+        "wires": [
+            [
+                "603bc6b18be2b558"
+            ]
+        ]
+    },
+    {
+        "id": "a081e4dfa7c6de18",
+        "type": "debug",
+        "z": "18b91be20995c6da",
+        "name": "debug 48",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "df9abd12.9df57",
+        "type": "inject",
+        "z": "fd7753ff7b352a7c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 480,
+        "wires": [
+            [
+                "62b463e4.f8e27c"
+            ]
+        ]
+    },
+    {
+        "id": "448767a9.6a3788",
+        "type": "http request",
+        "z": "fd7753ff7b352a7c",
+        "name": "post",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:3000/login",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "digest",
+        "senderr": false,
+        "headers": [],
+        "x": 721,
+        "y": 480,
+        "wires": [
+            [
+                "5977884a.e8e458",
+                "96a00cfb.c3323"
+            ]
+        ]
+    },
+    {
+        "id": "62b463e4.f8e27c",
+        "type": "function",
+        "z": "fd7753ff7b352a7c",
+        "name": "set login payload and headers",
+        "func": "msg.payload = \"username=admin&password=admin&action=login&view=console\";\nmsg.headers = {};\nmsg.headers['Accept'] = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8';\nmsg.headers['Accept-Encoding'] = 'gzip, deflate';\nmsg.headers['Accept-Language'] = 'en-GB,en;q=0.5';\nmsg.headers['Connection'] = 'keep-alive';\nmsg.headers['Content-type'] = 'application/x-www-form-urlencoded';\nmsg.headers['Cookie'] = 'zmSkin=classic; zmCSS=classic;';\nmsg.headers['Host'] = 'localhost';\nmsg.headers['Referer'] = 'http://localhost:3000/login';\nmsg.headers['Upgrade-Insecure-Requests'] = '1';\nmsg.headers['User-Agent'] = 'node-red';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 480,
+        "wires": [
+            [
+                "448767a9.6a3788"
+            ]
+        ]
+    },
+    {
+        "id": "96a00cfb.c3323",
+        "type": "debug",
+        "z": "fd7753ff7b352a7c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 997,
+        "y": 479,
+        "wires": []
+    },
+    {
+        "id": "5977884a.e8e458",
+        "type": "function",
+        "z": "fd7753ff7b352a7c",
+        "name": "set request payload and headers",
+        "func": "msg.payload = {};\nmsg.headers = {};\nmsg.headers['Accept'] = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8';\nmsg.headers['Accept-Encoding'] = 'gzip, deflate';\nmsg.headers['Accept-Language'] = 'en-GB,en;q=0.5';\nmsg.headers['Cache-Control'] = 'max-age=0';\nmsg.headers['Connection'] = 'keep-alive';\nmsg.headers['Cookie'] = 'zmSkin=classic; zmCSS=classic; ZMSESSID='+msg.responseCookies.ZMSESSID.value;\nmsg.headers['Host'] = 'localhost';\nmsg.headers['Upgrade-Insecure-Requests'] = '1';\nmsg.headers['User-Agent'] = 'node-red';\n\n//headers[\"set-cookie\"][0]\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 499,
+        "y": 633,
+        "wires": [
+            [
+                "f50d7b5c.5a23c8"
+            ]
+        ]
+    },
+    {
+        "id": "20ee379.f0f59c8",
+        "type": "debug",
+        "z": "fd7753ff7b352a7c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 991,
+        "y": 632,
+        "wires": []
+    },
+    {
+        "id": "f50d7b5c.5a23c8",
+        "type": "http request",
+        "z": "fd7753ff7b352a7c",
+        "name": "get",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:3000/d/5fn8rGz4z/dimo?orgId=1",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 728,
+        "y": 632,
+        "wires": [
+            [
+                "20ee379.f0f59c8"
+            ]
+        ]
+    },
+    {
+        "id": "ddf5e37fe7d4b478",
+        "type": "inject",
+        "z": "fd7753ff7b352a7c",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "x": 410,
+        "y": 120,
+        "wires": [
+            [
+                "f2f510ca7da17216"
+            ]
+        ]
+    },
+    {
+        "id": "f2f510ca7da17216",
+        "type": "credentials",
+        "z": "fd7753ff7b352a7c",
+        "name": "",
+        "props": [
+            {
+                "value": "username",
+                "type": "msg"
+            },
+            {
+                "value": "password",
+                "type": "msg"
+            }
+        ],
+        "x": 460,
+        "y": 220,
+        "wires": [
+            [
+                "e5fdd9ca88e18759"
+            ]
+        ]
+    },
+    {
+        "id": "e5fdd9ca88e18759",
+        "type": "nbrowser",
+        "z": "fd7753ff7b352a7c",
+        "name": "",
+        "methods": [
+            {
+                "name": "onAuthenticate",
+                "func": "authenticate",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "admin",
+                        "typeDefault": "str"
+                    },
+                    {
+                        "type": "str",
+                        "value": "admin",
+                        "typeDefault": "str"
+                    }
+                ]
+            },
+            {
+                "name": "gotoURL",
+                "func": "goto",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "http://localhost:3000/",
+                        "typeDefault": "str"
+                    }
+                ]
+            }
+        ],
+        "prop": "nbrowser",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "close": false,
+        "show": true,
+        "ssl": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 280,
+        "wires": [
+            [
+                "10597c8ed675d305"
+            ]
+        ]
+    },
+    {
+        "id": "56217ed258e28e13",
+        "type": "debug",
+        "z": "fd7753ff7b352a7c",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 970,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "8a12438cb0e90d3a",
+        "type": "html",
+        "z": "fd7753ff7b352a7c",
+        "name": "",
+        "tag": ".update-count",
+        "ret": "html",
+        "as": "single",
+        "x": 840,
+        "y": 940,
+        "wires": [
+            [
+                "2aa478c9.2dbe98"
+            ]
+        ]
+    },
+    {
+        "id": "10597c8ed675d305",
+        "type": "screenshot",
+        "z": "fd7753ff7b352a7c",
+        "name": "",
+        "url": "http://www.example.com/",
+        "path": "",
+        "x": 770,
+        "y": 180,
+        "wires": [
+            [
+                "56217ed258e28e13"
+            ]
+        ]
+    },
+    {
+        "id": "9821b56ed8283689",
+        "type": "puppeteer-page-screenshot",
+        "z": "fd7753ff7b352a7c",
+        "name": "",
+        "x": 850,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf934781.dbe858",
+        "type": "inject",
+        "z": "fd7753ff7b352a7c",
+        "name": "https://my.iteccrm.com/",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "https://my.iteccrm.com/",
+        "payloadType": "str",
+        "x": 560,
+        "y": 740,
+        "wires": [
+            [
+                "73df4bbf.8e1da4"
+            ]
+        ]
+    },
+    {
+        "id": "73df4bbf.8e1da4",
+        "type": "credentials",
+        "z": "fd7753ff7b352a7c",
+        "name": "",
+        "props": [
+            {
+                "value": "username",
+                "type": "msg"
+            },
+            {
+                "value": "password",
+                "type": "msg"
+            }
+        ],
+        "x": 560,
+        "y": 840,
+        "wires": [
+            [
+                "77b7ae1a.0469c"
+            ]
+        ]
+    },
+    {
+        "id": "77b7ae1a.0469c",
+        "type": "nbrowser",
+        "z": "fd7753ff7b352a7c",
+        "name": "",
+        "methods": [
+            {
+                "name": "gotoURL",
+                "func": "goto",
+                "params": [
+                    {
+                        "type": "msg",
+                        "value": "payload",
+                        "typeDefault": "str"
+                    }
+                ]
+            },
+            {
+                "name": "type",
+                "func": "type",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "#user_login",
+                        "typeDefault": "str"
+                    },
+                    {
+                        "type": "msg",
+                        "value": "username",
+                        "typeDefault": "str"
+                    }
+                ]
+            },
+            {
+                "name": "type",
+                "func": "type",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "#user_pass",
+                        "typeDefault": "str"
+                    },
+                    {
+                        "type": "msg",
+                        "value": "password",
+                        "typeDefault": "str"
+                    }
+                ]
+            },
+            {
+                "name": "click",
+                "func": "click",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "#wp-submit",
+                        "typeDefault": "str"
+                    }
+                ]
+            },
+            {
+                "name": "wait",
+                "func": "wait",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "#welcome-panel",
+                        "typeDefault": "str"
+                    }
+                ]
+            }
+        ],
+        "prop": "nbrowser",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "close": false,
+        "show": true,
+        "ssl": false,
+        "outputs": 1,
+        "x": 650,
+        "y": 900,
+        "wires": [
+            [
+                "8a12438cb0e90d3a"
+            ]
+        ]
+    },
+    {
+        "id": "2aa478c9.2dbe98",
+        "type": "debug",
+        "z": "fd7753ff7b352a7c",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 820,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "5d92e7de1daa9ae9",
+        "type": "function",
+        "z": "fd7753ff7b352a7c",
+        "name": "function 2",
+        "func": "\n\nvar obj = {};\n\nobj.payload =\n    [\n        {\n            measurement: \"SpecificYield\",\n\n            fields: {\n\n                value: msg.payload[0].last\n\n\n            },\n            tags: {\n                d: \"B01_INV1\",\n                f: \"B01_INV1_SY\"\n\n            },\n\n            timestamp: new Date(msg.payload[0].time)\n        }\n\n\n\n\n    ];\n\n//plantObj.push(obj)\nnode.send(obj);\n\n\n//msg.payload = plantObj\n\n//return msg;\nreturn null;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1420,
+        "y": 1780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fdd1270e70597a80",
+        "type": "inject",
+        "z": "79ee2dfb383828d4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 200,
+        "wires": [
+            [
+                "e7567c72f484ebe2"
+            ]
+        ]
+    },
+    {
+        "id": "e7567c72f484ebe2",
+        "type": "influxdb in",
+        "z": "79ee2dfb383828d4",
+        "influxdb": "3e5ec3ac526813c8",
+        "name": "",
+        "query": "SELECT last(\"value\") FROM \"scaback_csv\" WHERE (\"d\" =~ /.*INV*./ AND \"f\" = 'EAE_DAY') AND time >= now()-10m GROUP BY time(1d), \"d\" fill(null)",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "organisation",
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "a42ae7f8e415df34"
+            ]
+        ]
+    },
+    {
+        "id": "dce91fbb21f08de4",
+        "type": "debug",
+        "z": "79ee2dfb383828d4",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "0c738bc697433af1",
+        "type": "function",
+        "z": "79ee2dfb383828d4",
+        "name": "function 1",
+        "func": "\n\nlet plantObj\n\nplantObj = []\n\n\nfor (var i = 0; i < msg.payload[0].length; i++)\n {\n  var time0 = new Date(msg.payload[i].time).getTime();\n  //var time0 = new Date(msg.payload[0][i].time).getTime();\n  var B01_INV1 = ((msg.payload[i].last) / 1091.200) * 1000\n  var B01_INV2 = ((msg.payload[i].last) / 1066.400) * 1000\n  var B01_INV3 = ((msg.payload[i].last) / 1116.0) * 1000\n  var B01_INV4 = ((msg.payload[i].last) / 1202.80) * 1000\n  var B02_INV1 = ((msg.payload[i].last) / 1215.20) * 1000\n  var B02_INV2 = ((msg.payload[i].last) / 1215.20) * 1000\n  var B02_INV3 = ((msg.payload[i].last) / 1240.00) * 1000\n  var B02_INV4 = ((msg.payload[i].last) / 1227.60) * 1000\n  var B03_INV1 = ((msg.payload[i].last) / 1252.600) * 1000\n  var B03_INV2 = ((msg.payload[i].last) / 1227.600) * 1000\n  var B03_INV3 = ((msg.payload[i].last) / 1202.800) * 1000\n  var B03_INV4 = ((msg.payload[i].last) / 1202.800) * 1000\n  var B04_INV1 = ((msg.payload[i].last) / 1240.00) * 1000\n  var B04_INV2 = ((msg.payload[i].last) / 1252.400) * 1000\n  var B04_INV3 = ((msg.payload[i].last) / 1240.00) * 1000\n  var B04_INV4 = ((msg.payload[i].last) / 1252.400) * 1000\n  var B05_INV1 = ((msg.payload[i].last) / 1227.600) * 1000\n  var B05_INV2 = ((msg.payload[i].last) / 1227.600) * 1000\n  var B05_INV3 = ((msg.payload[i].last) / 1240.00) * 1000\n  var B05_INV4 = ((msg.payload[i].last) / 1227.600) * 1000\n  var B06_INV1 = ((msg.payload[i].last) / 1232.200) * 1000\n  var B06_INV2 = ((msg.payload[i].last) / 1234.800) * 1000\n  var B06_INV3 = ((msg.payload[i].last) / 1220.00) * 1000\n  var B06_INV4 = ((msg.payload[i].last) / 1195.600) * 1000\n  var B07_INV1 = ((msg.payload[i].last) / 1234.800) * 1000\n  var B07_INV2 = ((msg.payload[i].last) / 1234.800) * 1000\n  var B07_INV3 = ((msg.payload[i].last) / 1234.800) * 1000\n  var B07_INV4 = ((msg.payload[i].last) / 1234.800) * 1000\n  var B08_INV1 = ((msg.payload[i].last) / 1234.800) * 1000\n  var B08_INV2 = ((msg.payload[i].last) / 1234.800) * 1000\n  var B08_INV3 = ((msg.payload[i].last) / 1234.800) * 1000\n  var B08_INV4 = ((msg.payload[i].last) / 1234.800) * 1000\n  var B09_INV1 = ((msg.payload[i].last) / 1164.000) * 1000\n  var B09_INV2 = ((msg.payload[i].last) / 1164.00) * 1000\n  var B10_INV1 = ((msg.payload[i].last) / 1247.400) * 1000\n  var B10_INV2 = ((msg.payload[i].last) / 1247.400) * 1000\n  var B10_INV3 = ((msg.payload[i].last) / 1247.400) * 1000\n  var B10_INV4 = ((msg.payload[i].last) / 1247.400) * 1000\n  var B11_INV1 = ((msg.payload[i].last) / 1247.400) * 1000\n  var B11_INV2 = ((msg.payload[i].last) / 1222.200) * 1000\n  var B11_INV3 = ((msg.payload[i].last) / 1260.000) * 1000\n  var B11_INV4 = ((msg.payload[i].last) / 1260.00) * 1000\n  var B12_INV1 = ((msg.payload[i].last) / 1232.200) * 1000\n  var B12_INV2 = ((msg.payload[i].last) / 1285.20) * 1000\n  var B12_INV3 = ((msg.payload[i].last) / 1230.00) * 1000\n  var B12_INV4 = ((msg.payload[i].last) / 1260.00) * 1000\n  var B13_INV1 = ((msg.payload[i].last) / 1247.400) * 1000\n  var B13_INV2 = ((msg.payload[i].last) / 1272.600) * 1000\n  var B13_INV3 = ((msg.payload[i].last) / 1234.800) * 1000\n  var B13_INV4 = ((msg.payload[i].last) / 1223.800) * 1000\n  var field = \"Specific_yield\"\n\n\n  var obj = {\n \n    TIME:new Date(msg.payload[0].time),\n    B01_INV1, B01_INV2, B01_INV3, B01_INV4,\n    B02_INV1, B02_INV2, B02_INV3, B02_INV4,\n    B03_INV1, B03_INV2, B03_INV3, B03_INV4,\n    B04_INV1, B04_INV2, B04_INV3, B04_INV4,\n    B05_INV1, B05_INV2, B05_INV3, B05_INV4,\n    B06_INV1, B06_INV2, B06_INV3, B06_INV4,\n    B07_INV1, B07_INV2, B07_INV3, B07_INV4,\n    B08_INV1, B08_INV2, B08_INV3, B08_INV4,\n    B09_INV1, B09_INV2,\n    B10_INV1, B10_INV2, B10_INV3, B10_INV4,\n    B11_INV1, B11_INV2, B11_INV3, B11_INV4,\n    B12_INV1, B12_INV2, B12_INV3, B12_INV4,\n    B13_INV1, B13_INV2, B13_INV3, B13_INV4,\n    field\n  }\n  plantObj.push(obj)\n \nmsg.payload = plantObj\n }\n//return null;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 200,
+        "wires": [
+            [
+                "cceaaf1922c4f77f",
+                "e3ce8c3e6427c6e5"
+            ]
+        ]
+    },
+    {
+        "id": "cceaaf1922c4f77f",
+        "type": "debug",
+        "z": "79ee2dfb383828d4",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "1f5dbf277fbeda70",
+        "type": "influxdb batch",
+        "z": "79ee2dfb383828d4",
+        "influxdb": "3e5ec3ac526813c8",
+        "precision": "",
+        "retentionPolicy": "",
+        "name": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1170,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "e3ce8c3e6427c6e5",
+        "type": "function",
+        "z": "79ee2dfb383828d4",
+        "name": "function 3",
+        "func": "\nfor (i = 0; i < msg.payload.length; i++) \n{\n    var obj = {};\n    obj.payload =\n        [\n            {\n                measurement: \"SpecificYield\",\n\n                fields: {\n\n                    value: msg.payload[i].last\n\n\n                },\n                tags: {\n                    d: msg.payload[i].d\n                    // f: msg.payload[1].d\"_SY\"\n\n                },\n\n                timestamp: msg.payload[i].time\n            }\n\n\n\n\n        ];\n\n    //plantObj.push(obj)\n    node.send(obj);\n}\n\n//msg.payload = plantObj\n\n//return msg;\nreturn null;\n",
+        "outputs": 1,
+        "noerr": 6,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 200,
+        "wires": [
+            [
+                "dce91fbb21f08de4",
+                "1f5dbf277fbeda70"
+            ]
+        ]
+    },
+    {
+        "id": "a42ae7f8e415df34",
+        "type": "debug",
+        "z": "79ee2dfb383828d4",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "3a865805f6b20fa3",
+        "type": "http request",
+        "z": "dfde0eb8a7e7e4cf",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:3000",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "basic",
+        "senderr": false,
+        "headers": [],
+        "x": 530,
+        "y": 220,
+        "wires": [
+            [
+                "f38f718f973f7cde"
+            ]
+        ]
+    },
+    {
+        "id": "87a0aca295139e76",
+        "type": "inject",
+        "z": "dfde0eb8a7e7e4cf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "3a865805f6b20fa3"
+            ]
+        ]
+    },
+    {
+        "id": "f38f718f973f7cde",
+        "type": "debug",
+        "z": "dfde0eb8a7e7e4cf",
+        "name": "debug 46",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "5b9f7a4998116506",
+        "type": "inject",
+        "z": "cb44cd6126e01eab",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "22d163173c113443",
+        "type": "debug",
+        "z": "cb44cd6126e01eab",
+        "name": "debug 47",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 160,
+        "wires": []
+    }
+]
