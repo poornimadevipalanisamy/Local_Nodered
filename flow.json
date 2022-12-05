@@ -1,1 +1,784 @@
-[]
+[
+    {
+        "id": "0e5dbccd4b4b5f3e",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0388d2fdf8b520bb",
+        "type": "file in",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "filename": "/home/iplon/Desktop/poornima/inv1.jpg",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 870,
+        "y": 140,
+        "wires": [
+            [
+                "ea8eddf1fa818b9b"
+            ]
+        ]
+    },
+    {
+        "id": "45c1a8cd7778165b",
+        "type": "inject",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "timestamp",
+        "payloadType": "str",
+        "x": 140,
+        "y": 300,
+        "wires": [
+            [
+                "e1b67ff8a3b1f192",
+                "45748483f7bd2907",
+                "8ff6db906fee89e1",
+                "18dd23c131d2e034"
+            ]
+        ]
+    },
+    {
+        "id": "1f19807b9e72981b",
+        "type": "puppeteer-page-screenshot",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "fullpage": true,
+        "x": 450,
+        "y": 140,
+        "wires": [
+            [
+                "91b1368f6c457f2c"
+            ]
+        ]
+    },
+    {
+        "id": "e1b67ff8a3b1f192",
+        "type": "puppeteer-browser-launch",
+        "z": "0e5dbccd4b4b5f3e",
+        "timeout": "60000",
+        "slowMo": 0,
+        "headless": true,
+        "debugport": 0,
+        "devtools": true,
+        "name": "",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "e06c6c8b846755d4"
+            ]
+        ]
+    },
+    {
+        "id": "91b1368f6c457f2c",
+        "type": "jimp-image",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "/home/iplon/Desktop/poornima/inv1.jpg",
+        "parameter1Type": "str",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 630,
+        "y": 140,
+        "wires": [
+            [
+                "0388d2fdf8b520bb"
+            ]
+        ]
+    },
+    {
+        "id": "e06c6c8b846755d4",
+        "type": "puppeteer-page-goto",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "INV1",
+        "url": "http://localhost:3000/d/OXeGgYnVk/inv_1?orgId=2",
+        "urltype": "str",
+        "waitUntil": "networkidle0",
+        "x": 290,
+        "y": 140,
+        "wires": [
+            [
+                "1f19807b9e72981b"
+            ]
+        ]
+    },
+    {
+        "id": "2886c30da4e65f02",
+        "type": "puppeteer-page-screenshot",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "fullpage": true,
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "e73359e1b3092327"
+            ]
+        ]
+    },
+    {
+        "id": "e73359e1b3092327",
+        "type": "jimp-image",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "/home/iplon/Desktop/poornima/inv2.jpg",
+        "parameter1Type": "str",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 590,
+        "y": 220,
+        "wires": [
+            [
+                "0c5aa936ea515d20"
+            ]
+        ]
+    },
+    {
+        "id": "d567b659facc3bab",
+        "type": "puppeteer-page-goto",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "INV2",
+        "url": "http://localhost:3000/d/5oC9VDKVk/inv_2?orgId=2",
+        "urltype": "str",
+        "waitUntil": "networkidle0",
+        "x": 290,
+        "y": 220,
+        "wires": [
+            [
+                "2886c30da4e65f02"
+            ]
+        ]
+    },
+    {
+        "id": "0c5aa936ea515d20",
+        "type": "file in",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "filename": "/home/iplon/Desktop/poornima/inv2.jpg",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 810,
+        "y": 220,
+        "wires": [
+            [
+                "0dc29ad66aac1844"
+            ]
+        ]
+    },
+    {
+        "id": "45748483f7bd2907",
+        "type": "puppeteer-browser-launch",
+        "z": "0e5dbccd4b4b5f3e",
+        "timeout": "60000",
+        "slowMo": 0,
+        "headless": true,
+        "debugport": 0,
+        "devtools": true,
+        "name": "",
+        "x": 140,
+        "y": 220,
+        "wires": [
+            [
+                "d567b659facc3bab"
+            ]
+        ]
+    },
+    {
+        "id": "ea8eddf1fa818b9b",
+        "type": "base64",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 1120,
+        "y": 140,
+        "wires": [
+            [
+                "3bd2cb29433d4503"
+            ]
+        ]
+    },
+    {
+        "id": "0dc29ad66aac1844",
+        "type": "base64",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 1040,
+        "y": 220,
+        "wires": [
+            [
+                "c877be334c24933d"
+            ]
+        ]
+    },
+    {
+        "id": "186a78a6bca8b3a7",
+        "type": "file",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "filename": "/home/iplon/Desktop/poornima/hysolwin1.pdf",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 790,
+        "y": 740,
+        "wires": [
+            [
+                "67840405835f7247"
+            ]
+        ]
+    },
+    {
+        "id": "145a4d16b2ca7ed1",
+        "type": "pdfmake",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "outputType": "Buffer",
+        "inputProperty": "payload",
+        "options": "{}",
+        "outputProperty": "payload",
+        "x": 520,
+        "y": 740,
+        "wires": [
+            [
+                "186a78a6bca8b3a7"
+            ]
+        ]
+    },
+    {
+        "id": "ba7bd6c993f1964a",
+        "type": "template",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "Wattnexx",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"pageSize\": \"A4\",\n    \"pageOrientation\": \"portrait\",\n    \"pageMargins\": [\n        40,\n        60,\n        40,\n        60\n    ],\n    \"info\": {\n        \"title\": \"Wattnexx reports\",\n        \"author\": \"Poornima\",\n        \"subject\": \"Monthly\",\n        \"keywords\": \"Micro Grid\"\n    },\n    \"content\": [\n        \"\\t\\t\\t\",\"Hysolwin Inverter Reports\",\n        \"\\n\",\n        \"\\n\",\n        \"1.Aim : \",\n        \"\\n\",\n        \"This report contains the details of all inverter of the site.\",\n        \"\\n\",\n        \"2. INV1 :\",\n        \"\\n\",\n        \"This screen shows the today generation,total generation & active power of the first inverter in plant.\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.inv1}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        },\n        \"\\n\",\n        \"3.INV2 :\",\n        \"\\n\",\n        \"This screen shows the today generation,total generation & active power of the second inverter in plant.\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.inv2}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        },\n        \"\\n\",\n        \"4.INV3 :\",\n        \"\\n\",\n        \"This screen shows the today generation,total generation & active power of the third inverter in plant.\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.inv3}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        },\n        \"\\n\",\n        \"5.INV4 :\",\n        \"\\n\",\n        \"This screen shows the today generation,total generation & active power of the fourth inverter in plant.\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.inv4}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        }\n    ]\n}",
+        "output": "json",
+        "x": 340,
+        "y": 740,
+        "wires": [
+            [
+                "145a4d16b2ca7ed1"
+            ]
+        ]
+    },
+    {
+        "id": "c877be334c24933d",
+        "type": "change",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "inv2",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1180,
+        "y": 220,
+        "wires": [
+            [
+                "603bc6b18be2b558"
+            ]
+        ]
+    },
+    {
+        "id": "603bc6b18be2b558",
+        "type": "function",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "combine",
+        "func": "context.data = context.data || {};\nswitch(msg.topic){\n    case \"inv1\":\n        context.data.inv1 = msg.payload;\n        msg = null;\n        break;\n    case \"inv2\":\n        context.data.inv2 = msg.payload;\n        msg = null;\n        break;\n    case \"inv3\":\n        context.data.inv3 = msg.payload;\n        msg = null;\n        break;\n    case \"inv4\":\n        context.data.inv4 = msg.payload;\n        msg = null;\n        break;\n}\nif (context.data.inv1 != null && context.data.inv2 != null && context.data.inv3 != null && context.data.inv4 != null){\n    var data_combine = {\n        \"inv1\": context.data.inv1,\n        \"inv2\": context.data.inv2,\n        \"inv3\": context.data.inv3,\n        \"inv4\": context.data.inv4\n       \n    }\n    context.data = null\n    return {payload: data_combine};\n}  ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 160,
+        "y": 740,
+        "wires": [
+            [
+                "ba7bd6c993f1964a"
+            ]
+        ]
+    },
+    {
+        "id": "67840405835f7247",
+        "type": "debug",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "debug 45",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "7578e5e6c9fdefd1",
+        "type": "file in",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "filename": "/home/iplon/Desktop/poornima/inv3.jpg",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 750,
+        "y": 380,
+        "wires": [
+            [
+                "22a1a680b8de37c0"
+            ]
+        ]
+    },
+    {
+        "id": "5a2405bce9b7c275",
+        "type": "puppeteer-page-screenshot",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "fullpage": true,
+        "x": 370,
+        "y": 380,
+        "wires": [
+            [
+                "c1514fae4c61f21d"
+            ]
+        ]
+    },
+    {
+        "id": "8ff6db906fee89e1",
+        "type": "puppeteer-browser-launch",
+        "z": "0e5dbccd4b4b5f3e",
+        "timeout": "60000",
+        "slowMo": 0,
+        "headless": true,
+        "debugport": 0,
+        "devtools": true,
+        "name": "",
+        "x": 100,
+        "y": 380,
+        "wires": [
+            [
+                "1caada3a4878fe33"
+            ]
+        ]
+    },
+    {
+        "id": "c1514fae4c61f21d",
+        "type": "jimp-image",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "/home/iplon/Desktop/poornima/inv3.jpg",
+        "parameter1Type": "str",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 510,
+        "y": 380,
+        "wires": [
+            [
+                "7578e5e6c9fdefd1"
+            ]
+        ]
+    },
+    {
+        "id": "1caada3a4878fe33",
+        "type": "puppeteer-page-goto",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "INV3",
+        "url": "http://localhost:3000/d/xA_iIDK4k/inv_3?orgId=2",
+        "urltype": "str",
+        "waitUntil": "networkidle0",
+        "x": 230,
+        "y": 380,
+        "wires": [
+            [
+                "5a2405bce9b7c275"
+            ]
+        ]
+    },
+    {
+        "id": "e5d9767052cdaab8",
+        "type": "puppeteer-page-screenshot",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "fullpage": true,
+        "x": 410,
+        "y": 480,
+        "wires": [
+            [
+                "78952132743738cd"
+            ]
+        ]
+    },
+    {
+        "id": "78952132743738cd",
+        "type": "jimp-image",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "/home/iplon/Desktop/poornima/inv4.jpg",
+        "parameter1Type": "str",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 550,
+        "y": 480,
+        "wires": [
+            [
+                "c58e3943627a92ce"
+            ]
+        ]
+    },
+    {
+        "id": "0475414b8a4657a3",
+        "type": "puppeteer-page-goto",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "INV4",
+        "url": "http://localhost:3000/d/9vzNIDFVk/inv_4?orgId=2",
+        "urltype": "str",
+        "waitUntil": "networkidle0",
+        "x": 250,
+        "y": 480,
+        "wires": [
+            [
+                "e5d9767052cdaab8"
+            ]
+        ]
+    },
+    {
+        "id": "c58e3943627a92ce",
+        "type": "file in",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "filename": "/home/iplon/Desktop/poornima/inv4.jpg",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 770,
+        "y": 480,
+        "wires": [
+            [
+                "020677708236030b"
+            ]
+        ]
+    },
+    {
+        "id": "18dd23c131d2e034",
+        "type": "puppeteer-browser-launch",
+        "z": "0e5dbccd4b4b5f3e",
+        "timeout": "60000",
+        "slowMo": 0,
+        "headless": true,
+        "debugport": 0,
+        "devtools": true,
+        "name": "",
+        "x": 100,
+        "y": 480,
+        "wires": [
+            [
+                "0475414b8a4657a3"
+            ]
+        ]
+    },
+    {
+        "id": "22a1a680b8de37c0",
+        "type": "base64",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 980,
+        "y": 380,
+        "wires": [
+            [
+                "8510e23571f306bb"
+            ]
+        ]
+    },
+    {
+        "id": "020677708236030b",
+        "type": "base64",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 1000,
+        "y": 480,
+        "wires": [
+            [
+                "31073c57c903d7c4"
+            ]
+        ]
+    },
+    {
+        "id": "31073c57c903d7c4",
+        "type": "change",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "inv4",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1140,
+        "y": 480,
+        "wires": [
+            [
+                "603bc6b18be2b558"
+            ]
+        ]
+    },
+    {
+        "id": "8510e23571f306bb",
+        "type": "change",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "inv3",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1140,
+        "y": 380,
+        "wires": [
+            [
+                "603bc6b18be2b558"
+            ]
+        ]
+    },
+    {
+        "id": "3bd2cb29433d4503",
+        "type": "change",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "inv1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1260,
+        "y": 140,
+        "wires": [
+            [
+                "603bc6b18be2b558"
+            ]
+        ]
+    },
+    {
+        "id": "a081e4dfa7c6de18",
+        "type": "debug",
+        "z": "0e5dbccd4b4b5f3e",
+        "name": "debug 48",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 40,
+        "wires": []
+    }
+]
