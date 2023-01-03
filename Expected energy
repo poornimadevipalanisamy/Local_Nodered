@@ -1,0 +1,159 @@
+[
+    {
+        "id": "f225b240e3e54928",
+        "type": "tab",
+        "label": "Expected energy",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9bcb2abf345ce737",
+        "type": "inject",
+        "z": "f225b240e3e54928",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 00 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "75159567053c8fdf"
+            ]
+        ]
+    },
+    {
+        "id": "75159567053c8fdf",
+        "type": "http request",
+        "z": "f225b240e3e54928",
+        "name": "meteoblue",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://my.meteoblue.com/packages/solar-1h?apikey=rwJeH21uC3FvPTWD&lat=37.738381&lon=-88.540607&capacity=10&asl=111&format=json",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 350,
+        "y": 180,
+        "wires": [
+            [
+                "47327cfdbf06199a"
+            ]
+        ]
+    },
+    {
+        "id": "47327cfdbf06199a",
+        "type": "function",
+        "z": "f225b240e3e54928",
+        "name": "meteoblue1h",
+        "func": "let plantObj\n\nplantObj = []\n\nfor (var i = 0; i < msg.payload.data_1h.time.length; i++)\n    {\n    var time = msg.payload.data_1h.time[i]\n    // global normal irradiance =gni\n    //var gni_instant = msg.payload.data_xmin.gni_instant[i]\n    // direct normal irradiance =dni\n    //var dni_instant = msg.payload.data_xmin.dni_instant[i]\n    // Diffuse horizontal irradiance (DIF or DHI) =dif\n    //var dif_instant = msg.payload.data_xmin.dif_instant[i]\n    //Global Horizontal Irradiance = ghi\n    var ghi_instant = msg.payload.data_1h.ghi_instant[i]\n    //var extraterrestrialradiation_instant = msg.payload.data_xmin.extraterrestrialradiation_instant[i]\n\n            var obj = {\n                time,\n                //gni_instant,\n                //dni_instant,\n                //dif_instant,\n                ghi_instant,\n                //extraterrestrialradiation_instant \n            }\n\n            plantObj.push(obj)\n        }\n    \nmsg.payload = plantObj\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 180,
+        "wires": [
+            [
+                "9ab19465b5028bf9"
+            ]
+        ]
+    },
+    {
+        "id": "9ab19465b5028bf9",
+        "type": "function",
+        "z": "f225b240e3e54928",
+        "name": "energy calculation",
+        "func": "let plantObj\n\nplantObj = []\nvar insolation_old;\n\nfor (var i = 0; i < msg.payload.length; i++)\n{\n    var time = new Date(msg.payload[i].time).getTime(); \n    var radiation = msg.payload[i].ghi_instant;\n    if (!insolation_old){\n        insolation_old = 0;\n    }\n    var insolation_new = insolation_old + ((60 * 60 * radiation) / (60 * 60 * 1000));\n    insolation_old = insolation_new;\n    var EE = insolation_old * 10 ;\n        var obj = {\n        \n            time,\n            radiation,\n            insolation_old,\n            EE\n        \n        }\n    plantObj.push(obj)\n}\n    \n\nmsg.payload = plantObj\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 180,
+        "wires": [
+            [
+                "788a2dc091e8c341"
+            ]
+        ]
+    },
+    {
+        "id": "b24b21a70f9dae15",
+        "type": "file",
+        "z": "f225b240e3e54928",
+        "name": "us.csv",
+        "filename": "/opt/poornima/meteoblueEE.csv",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1010,
+        "y": 180,
+        "wires": [
+            [
+                "61bfa4549b4abd4b"
+            ]
+        ]
+    },
+    {
+        "id": "788a2dc091e8c341",
+        "type": "csv",
+        "z": "f225b240e3e54928",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "once",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 890,
+        "y": 180,
+        "wires": [
+            [
+                "b24b21a70f9dae15"
+            ]
+        ]
+    },
+    {
+        "id": "61bfa4549b4abd4b",
+        "type": "debug",
+        "z": "f225b240e3e54928",
+        "name": "debug 35",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 180,
+        "wires": []
+    }
+]
