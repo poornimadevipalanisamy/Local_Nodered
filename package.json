@@ -2,7 +2,9 @@
     "name": "report_automation",
     "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "@inutil-labs/node-red-whin-whatsapp": "0.0.8"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flows.json",
