@@ -1,0 +1,465 @@
+[
+    {
+        "id": "18eeef1213ab0970",
+        "type": "tab",
+        "label": "Method 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7d8307f0b6ddaac6",
+        "type": "file in",
+        "z": "18eeef1213ab0970",
+        "name": "input",
+        "filename": "/home/iplon/grafana-generate-pdf-nodejs-main/output/inv1.png",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 770,
+        "y": 80,
+        "wires": [
+            [
+                "efdc5ef0a0b6eeee"
+            ]
+        ]
+    },
+    {
+        "id": "4820c9840e266b28",
+        "type": "inject",
+        "z": "18eeef1213ab0970",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "timestamp",
+        "payloadType": "str",
+        "x": 280,
+        "y": 220,
+        "wires": [
+            [
+                "6a9530dba5e9d0b3",
+                "d89cbfa31e0a9f06",
+                "ef20ccf61106fb0f",
+                "7184deb25c3ffec5"
+            ]
+        ]
+    },
+    {
+        "id": "71869b5b193fe9f4",
+        "type": "file in",
+        "z": "18eeef1213ab0970",
+        "name": "input",
+        "filename": "/home/iplon/grafana-generate-pdf-nodejs-main/output/inv2.png",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 770,
+        "y": 140,
+        "wires": [
+            [
+                "397c8dc222f7e198"
+            ]
+        ]
+    },
+    {
+        "id": "efdc5ef0a0b6eeee",
+        "type": "base64",
+        "z": "18eeef1213ab0970",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 1020,
+        "y": 80,
+        "wires": [
+            [
+                "72e99f1e121aa591"
+            ]
+        ]
+    },
+    {
+        "id": "397c8dc222f7e198",
+        "type": "base64",
+        "z": "18eeef1213ab0970",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 1020,
+        "y": 140,
+        "wires": [
+            [
+                "25e180862be7a73e"
+            ]
+        ]
+    },
+    {
+        "id": "21448e3c4449d0af",
+        "type": "file in",
+        "z": "18eeef1213ab0970",
+        "name": "input",
+        "filename": "/home/iplon/grafana-generate-pdf-nodejs-main/output/inv3.png",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 770,
+        "y": 200,
+        "wires": [
+            [
+                "8fdbe84bcd209f2e"
+            ]
+        ]
+    },
+    {
+        "id": "07a5c5d644dd7622",
+        "type": "file in",
+        "z": "18eeef1213ab0970",
+        "name": "input",
+        "filename": "/home/iplon/grafana-generate-pdf-nodejs-main/output/inv4.png",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 770,
+        "y": 260,
+        "wires": [
+            [
+                "6c8bf32f89aa10da"
+            ]
+        ]
+    },
+    {
+        "id": "8fdbe84bcd209f2e",
+        "type": "base64",
+        "z": "18eeef1213ab0970",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 1020,
+        "y": 200,
+        "wires": [
+            [
+                "afbe19b8f4a4029e"
+            ]
+        ]
+    },
+    {
+        "id": "6c8bf32f89aa10da",
+        "type": "base64",
+        "z": "18eeef1213ab0970",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 1020,
+        "y": 260,
+        "wires": [
+            [
+                "8f1cd40f349ff3bc"
+            ]
+        ]
+    },
+    {
+        "id": "e85156106190e285",
+        "type": "file",
+        "z": "18eeef1213ab0970",
+        "name": "output in PDF",
+        "filename": "/home/iplon/grafana-generate-pdf-nodejs-main/output/report.pdf",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1060,
+        "y": 580,
+        "wires": [
+            [
+                "48565653bfccc23a"
+            ]
+        ]
+    },
+    {
+        "id": "502afd90bab6bbfb",
+        "type": "template",
+        "z": "18eeef1213ab0970",
+        "name": "Wattnexx",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"pageSize\": \"A4\",\n    \"pageOrientation\": \"portrait\",\n    \"pageMargins\": [\n        40,\n        60,\n        40,\n        60\n    ],\n    \"info\": {\n        \"title\": \"Wattnexx reports\",\n        \"author\": \"Poornima\",\n        \"subject\": \"Monthly\",\n        \"keywords\": \"Micro Grid\"\n    },\n    \"content\": [\n        \"Reports\",\n        \"\\n\",\n        \"1.Aim : \",\n        \"\\n\",\n        \"This report contains the details of Weekly,monthly and yearly reports for your reference.\",\n        \"\\n\",\n        \"2. Generation reports :\",\n        \"\\n\",\n        \"This screen shows the generation devices like inverter. Here we get last Month generation data. Also, that screen data directly export to csv format.\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.inv1}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        },\n        \"\\n\",\n        \"\\n\",\n        \"3.Reports :\",\n        \"This screen shows monthly & yearly data\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.inv2}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        },\n        \"\\n\",\n        \"\\n\",\n        \"\\n\",\n        \"4.INV String details :\",\n        \"This screen shows inverter wise string data of the plant\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.inv3}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        },\n        \"\\n\",\n        \"5.Plant energy flow :\",\n        \"This screen shows active power,generation & frequency of all inverters data of the plant\",\n        \"\\n\",\n        {\n            \"image\": \"data:image/jpeg;base64,{{{payload.inv4}}}\",\n            \"alignment\": \"center\",\n            \"width\": 300\n        }\n    ]\n}",
+        "output": "json",
+        "x": 740,
+        "y": 580,
+        "wires": [
+            [
+                "abb6a361ac9c9770"
+            ]
+        ]
+    },
+    {
+        "id": "72e99f1e121aa591",
+        "type": "change",
+        "z": "18eeef1213ab0970",
+        "name": "inv2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "inv2",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 560,
+        "wires": [
+            [
+                "39da71019cf52bd7"
+            ]
+        ]
+    },
+    {
+        "id": "25e180862be7a73e",
+        "type": "change",
+        "z": "18eeef1213ab0970",
+        "name": "inv1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "inv1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 480,
+        "wires": [
+            [
+                "39da71019cf52bd7"
+            ]
+        ]
+    },
+    {
+        "id": "48565653bfccc23a",
+        "type": "debug",
+        "z": "18eeef1213ab0970",
+        "name": "debug 57",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1230,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "afbe19b8f4a4029e",
+        "type": "change",
+        "z": "18eeef1213ab0970",
+        "name": "inv3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "inv3",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 640,
+        "wires": [
+            [
+                "39da71019cf52bd7"
+            ]
+        ]
+    },
+    {
+        "id": "39da71019cf52bd7",
+        "type": "function",
+        "z": "18eeef1213ab0970",
+        "name": "combine",
+        "func": "context.data = context.data || {};\nswitch(msg.topic){\n    case \"inv1\":\n        context.data.inv1 = msg.payload;\n        msg = null;\n        break;\n    case \"inv2\":\n        context.data.inv2 = msg.payload;\n        msg = null;\n        break;\n    case \"inv3\":\n        context.data.inv3 = msg.payload;\n        msg = null;\n        break;\n    case \"inv4\":\n        context.data.inv4 = msg.payload;\n        msg = null;\n        break;\n}\nif (context.data.inv1 != null && context.data.inv2 != null && context.data.inv3 != null && context.data.inv4 != null){\n    var data_combine = {\n        \"inv1\": context.data.inv1,\n        \"inv2\": context.data.inv2,\n        \"inv3\": context.data.inv3,\n        \"inv4\": context.data.inv4\n       \n    }\n    context.data = null\n    return {payload: data_combine};\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 580,
+        "wires": [
+            [
+                "502afd90bab6bbfb"
+            ]
+        ]
+    },
+    {
+        "id": "abb6a361ac9c9770",
+        "type": "pdfmake",
+        "z": "18eeef1213ab0970",
+        "name": "",
+        "outputType": "Buffer",
+        "inputProperty": "payload",
+        "options": "{}",
+        "outputProperty": "payload",
+        "x": 900,
+        "y": 580,
+        "wires": [
+            [
+                "e85156106190e285"
+            ]
+        ]
+    },
+    {
+        "id": "8f1cd40f349ff3bc",
+        "type": "change",
+        "z": "18eeef1213ab0970",
+        "name": "inv4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "inv4",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 720,
+        "wires": [
+            [
+                "39da71019cf52bd7"
+            ]
+        ]
+    },
+    {
+        "id": "6a9530dba5e9d0b3",
+        "type": "exec",
+        "z": "18eeef1213ab0970",
+        "command": "cd /home/iplon/grafana-generate-pdf-nodejs-main/ && node grafana_pdf.js \"http://localhost:3000/d/OXeGgYnVk/inv_1?orgId=2\" admin:admin output/inv1.png",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "inv1",
+        "x": 630,
+        "y": 100,
+        "wires": [
+            [
+                "7d8307f0b6ddaac6"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d89cbfa31e0a9f06",
+        "type": "exec",
+        "z": "18eeef1213ab0970",
+        "command": "cd /home/iplon/grafana-generate-pdf-nodejs-main/ && node grafana_pdf.js \"http://localhost:3000/d/5oC9VDKVk/inv_2?orgId=2\" admin:admin output/inv2.png",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "inv2",
+        "x": 630,
+        "y": 160,
+        "wires": [
+            [
+                "71869b5b193fe9f4"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ef20ccf61106fb0f",
+        "type": "exec",
+        "z": "18eeef1213ab0970",
+        "command": "cd /home/iplon/grafana-generate-pdf-nodejs-main/ && node grafana_pdf.js \"http://localhost:3000/d/xA_iIDK4k/inv_3?orgId=2\" admin:admin output/inv3.png",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "inv3",
+        "x": 630,
+        "y": 220,
+        "wires": [
+            [
+                "21448e3c4449d0af"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7184deb25c3ffec5",
+        "type": "exec",
+        "z": "18eeef1213ab0970",
+        "command": "cd /home/iplon/grafana-generate-pdf-nodejs-main/ && node grafana_pdf.js \"http://localhost:3000/d/9vzNIDFVk/inv_4?orgId=2\" admin:admin output/inv4.png",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "inv4",
+        "x": 630,
+        "y": 280,
+        "wires": [
+            [
+                "07a5c5d644dd7622"
+            ],
+            [],
+            []
+        ]
+    }
+]
