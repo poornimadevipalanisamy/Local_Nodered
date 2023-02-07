@@ -1,0 +1,130 @@
+[
+    {
+        "id": "ce0350b8b81a4763",
+        "type": "function",
+        "z": "ebb2c3a1eb0931d0",
+        "name": "merge",
+        "func": "const merger = new pdfMergerJs()\n\n//the array of files from fs-ops\nconst files = msg.files\n\n//check there are 2 or more\nif (!files || !files.length || files.length < 2) {\n    node.warn(\"Not enough files to merge. there should be 2 or more PDFs\");\n    return\n}\n\n// loop the file names from fs-ops-directory\nfor (let index = 0; index < files.length; index++) {\n    const file = files[index] // this file name\n    const fullPath = path.join(msg.path, file) // make full path\n    await merger.add(fullPath) // add the full path to pdf\n}\n\n// join and return a buffer\nmsg.payload = await merger.saveAsBuffer() \n\n// set msg.filename for write node\nmsg.filename = msg.output // msg.result is configured in the inject node\n\n// pass the msg to next node\nnode.send(msg);\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pdfMergerJs",
+                "module": "pdf-merger-js"
+            },
+            {
+                "var": "pdfLib",
+                "module": "pdf-lib"
+            },
+            {
+                "var": "path",
+                "module": "path"
+            }
+        ],
+        "x": 510,
+        "y": 1160,
+        "wires": [
+            [
+                "babf292556e22bc6"
+            ]
+        ]
+    },
+    {
+        "id": "0226bee581e0c3a4",
+        "type": "inject",
+        "z": "ebb2c3a1eb0931d0",
+        "name": "set path",
+        "props": [
+            {
+                "p": "path",
+                "v": "/home/iplon/grafana-generate-pdf-nodejs-main/output",
+                "vt": "str"
+            },
+            {
+                "p": "output",
+                "v": "/home/iplon/grafana-generate-pdf-nodejs-main/output/result.pdf",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 1160,
+        "wires": [
+            [
+                "b66a61c697d2d53c"
+            ]
+        ]
+    },
+    {
+        "id": "b66a61c697d2d53c",
+        "type": "fs-ops-dir",
+        "z": "ebb2c3a1eb0931d0",
+        "name": "",
+        "path": "path",
+        "pathType": "msg",
+        "filter": "*.pdf",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 340,
+        "y": 1160,
+        "wires": [
+            [
+                "ce0350b8b81a4763"
+            ]
+        ]
+    },
+    {
+        "id": "c0fde696883c0dd9",
+        "type": "debug",
+        "z": "ebb2c3a1eb0931d0",
+        "name": "debug 80",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "babf292556e22bc6",
+        "type": "file",
+        "z": "ebb2c3a1eb0931d0",
+        "name": "",
+        "filename": "filename",
+        "filenameType": "msg",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 660,
+        "y": 1160,
+        "wires": [
+            [
+                "c0fde696883c0dd9"
+            ]
+        ]
+    },
+    {
+        "id": "68107c1d432269fd",
+        "type": "comment",
+        "z": "ebb2c3a1eb0931d0",
+        "name": "Merging the pdf in particular directory",
+        "info": "",
+        "x": 210,
+        "y": 1120,
+        "wires": [],
+        "icon": "font-awesome/fa-long-arrow-down"
+    }
+]
